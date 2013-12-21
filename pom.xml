@@ -90,6 +90,7 @@
             </configuration>
       </plugin>
       <plugin>
+          <version>2.3.2</version>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -108,6 +109,7 @@
 				</configuration>
 			</plugin>
       <plugin>
+          <version>2.3.1</version>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <configuration>
@@ -131,55 +133,12 @@
                         <!-- ========== -->
                         <!-- == RXTX == -->
                         <!-- ========== -->
-                        <binlib>
-                          <os>mac</os>
-                          <fileSet>
-                              <directory>${project.basedir}/lib/natives/mac</directory>
-                              <includes>
-                                  <include>*.*</include>
-                              </includes>
-                          </fileSet>
-                        </binlib>
-                        <binlib>
-                          <os>linux</os>
-                          <arch>32</arch>
-                          <fileSet>
-                              <directory>${project.basedir}/lib/natives/linux32</directory>
-                              <includes>
-                                  <include>*.*</include>
-                              </includes>
-                          </fileSet>
-                        </binlib>
-                        <binlib>
-                          <os>linux</os>
-                          <arch>64</arch>
-                          <fileSet>
-                              <directory>${project.basedir}/lib/natives/linux64</directory>
-                              <includes>
-                                  <include>*.*</include>
-                              </includes>
-                          </fileSet>
-                        </binlib>
-                        <binlib>
-                          <os>windows</os>
-                          <arch>64</arch>
-                          <fileSet>
-                              <directory>${project.basedir}/lib/natives/win64</directory>
-                              <includes>
-                                  <include>*.*</include>
-                              </includes>
-                          </fileSet>
-                        </binlib>
-                        <binlib>
-                          <os>windows</os>
-                          <arch>32</arch>
-                          <fileSet>
-                              <directory>${project.basedir}/lib/natives/win32</directory>
-                              <includes>
-                                  <include>*.*</include>
-                              </includes>
-                          </fileSet>
-                        </binlib>
+                              <binlib>
+                                  <directory>${project.basedir}/lib/natives/windows64</directory>
+                                  <includes>
+                                      <include>*.*</include>
+                                  </includes>
+                              </binlib>
                       </binlibs>
                       <!-- Optional, default is false -->
                       <attachToBuild>true</attachToBuild>

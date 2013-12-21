@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="UGS:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="874300d8-a0f4-450c-8307-d7a9dcf59771" name="Default" comment="" />
+    <ignored path="Universal-G-Code-Sender.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387585291449" ignored="false" />
+    <file path="$USER_HOME$/AppData/Local/Temp/post.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387474981276" ignored="false" />
+    <file path="/fragment.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387577805878" ignored="false" />
+    <file path="/pom.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386787425001" ignored="false" />
+    <file path="/build-impl.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386786707114" ignored="false" />
+    <file path="$PROJECT_DIR$/../gnu.io.android/gnu.io.test/gen/gnu/io/test/BuildConfig.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386867739977" ignored="false" />
+    <file path="$PROJECT_DIR$/../gnu.io.android/gnu.io.test/gen/gnu/io/test/R.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386803453345" ignored="false" />
+    <file path="$PROJECT_DIR$/../gnu.io.android/gnu.io.test/gen/gnu/io/test/Manifest.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386803453345" ignored="false" />
+    <file path="$PROJECT_DIR$/../AndroidTest/AndroidManifest.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386804300764" ignored="false" />
+    <file path="$PROJECT_DIR$/../AndroidTest/src/com/example/AndroidTest/MyActivity.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386804300764" ignored="false" />
+    <file path="$PROJECT_DIR$/../AndroidTest/res/layout/main.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386804300764" ignored="false" />
+    <file path="$PROJECT_DIR$/../AndroidTest/res/values/strings.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386804300764" ignored="false" />
+    <file path="$PROJECT_DIR$/../AndroidTest/build.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386804300764" ignored="false" />
+    <file path="$USER_HOME$/Google Drive/ShapeOko/GCode/nc.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386867805029" ignored="false" />
+    <file path="$USER_HOME$/Google Drive/ShapeOko/GCode/DustSkirt.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387065083209" ignored="false" />
+    <file path="/DustSkirt.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387063369165" ignored="false" />
+    <file path="$USER_HOME$/Google Drive/ShapeOko/GCode/GCode.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387064537547" ignored="false" />
+    <file path="$USER_HOME$/Google Drive/ShapeOko/GCode/Path.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386883939086" ignored="false" />
+    <file path="/Path.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386883932477" ignored="false" />
+    <file path="$USER_HOME$/Google Drive/ShapeOko/GCode/Operation.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387064494824" ignored="false" />
+    <file path="/Operation.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387047872081" ignored="false" />
+    <file path="/fragment.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386989156946" ignored="false" />
+    <file path="/Job.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387047339542" ignored="false" />
+    <file path="$USER_HOME$/Google Drive/ShapeOko/GCode/Job.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387047911405" ignored="false" />
+    <file path="/AbstractCommunicator.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387249390658" ignored="false" />
+    <file path="/GrblCommunicator.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387251096251" ignored="false" />
+    <file path="/GrblController.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387580645394" ignored="false" />
+    <file path="/AbstractController.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387585243460" ignored="false" />
+    <file path="/TinyGController.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387252998506" ignored="false" />
+    <file path="/VisualizerCanvas.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387579700775" ignored="false" />
+    <file path="/VisualizerUtils.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387482967344" ignored="false" />
+    <file path="/a.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387482270416" ignored="false" />
+    <file path="/a.dummy" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387567833065" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="639" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="662" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="638" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="680" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="659" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="631" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="628" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="625" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="622" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="665" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="668" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="671" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="674" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="677" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="95" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Universal-G-Code-Sender" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="GrblController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="11" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrblCommunicator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblCommunicator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="13" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="22" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.26608697">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractCommunicator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractCommunicator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="31" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TinyGController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/TinyGController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="127" column="25" selection-start="3782" selection-end="3782" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1159" column="28" selection-start="66162" selection-end="66162" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/nbproject/build-impl.xml" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractCommunicator.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblCommunicator.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblController.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/TinyGController.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\maven\3.1.1" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="UGS" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="UGS" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="UGS" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="resources" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="UGS" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="289" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="289" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="289" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="289" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="964" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="964" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="290" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="288" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="editor.preferences.smartKeys" />
+    <property name="project.structure.side.proportion" value="0.40831074" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <PyConsoleSettings />
+    </option>
+    <option name="myDjangoConsoleState">
+      <PyConsoleSettings />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.MainWindow">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainWindow" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="com.willwinder.universalgcodesender.MainWindow" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="UGS" />
+      <envs>
+        <env name="PATH" value="%PATH%;lib\natives\windows64" />
+      </envs>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.MainWindow" />
+    </list>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value="ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="874300d8-a0f4-450c-8307-d7a9dcf59771" name="Default" comment="" />
+      <created>1386700373817</created>
+      <updated>1386700373817</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add more navigation controls to the visualizer. Allow zooming and panning, but keep the center of rotation at the center of the model. Some standardish controls implemented: mouse wheel zooms in-out, middle mouse button pans, shift + mouse movement pans, ctrl-+ and ctrl-- zoom in and out. ctrl-0 returns to 0 zoom. Esc returns to 0 zoom and default rotation.">
+      <created>1387579977226</created>
+      <updated>1387579977226</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes to get things to build locally. Biggest issues were refresh image file path and the one-jar plugin's lack of support for multiple OS binaries.">
+      <created>1387581063914</created>
+      <updated>1387581063914</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Path didn't work in my local environment.">
+      <created>1387581247333</created>
+      <updated>1387581247333</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Have soft reset flush buffers to clear pending commands, and free controller up for new jobs.">
+      <created>1387581428484</created>
+      <updated>1387581428484</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge remote-tracking branches 'remotes/origin/pr/2', 'remotes/origin/pr/46', 'remotes/origin/pr/5', 'remotes/origin/pr/64', 'remotes/origin/pr/7' and 'remotes/origin/pr/99'&#10;&#10;Conflicts:&#10;">
+      <created>1387583767301</created>
+      <updated>1387583767301</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Merge remote-tracking branches 'remotes/origin/pr/2', 'remotes/origin/pr/46', 'remotes/origin/pr/5', 'remotes/origin/pr/64', 'remotes/origin/pr/7' and 'remotes/origin/pr/99'&#10;&#10;Conflicts:&#10;">
+      <created>1387583789495</created>
+      <updated>1387583789495</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Merge branch 'master' of https://github.com/winder/Universal-G-Code-Sender&#10;&#10;Conflicts:&#10;&#9;src/com/willwinder/universalgcodesender/AbstractController.java&#10;">
+      <created>1387585334604</created>
+      <updated>1387585334604</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22198506" sideWeight="0.67112595" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39910814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37566704" sideWeight="0.67001116" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3004269" sideWeight="0.6722408" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.67001116" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20624304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35451505" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/winder/Universal-G-Code-Sender&#10;&#10;Conflicts:&#10;&#9;src/com/willwinder/universalgcodesender/AbstractController.java&#10;" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Add more navigation controls to the visualizer. Allow zooming and panning, but keep the center of rotation at the center of the model. Some standardish controls implemented: mouse wheel zooms in-out, middle mouse button pans, shift + mouse movement pans, ctrl-+ and ctrl-- zoom in and out. ctrl-0 returns to 0 zoom. Esc returns to 0 zoom and default rotation." />
+    <MESSAGE value="Changes to get things to build locally. Biggest issues were refresh image file path and the one-jar plugin's lack of support for multiple OS binaries." />
+    <MESSAGE value="Path didn't work in my local environment." />
+    <MESSAGE value="Have soft reset flush buffers to clear pending commands, and free controller up for new jobs." />
+    <MESSAGE value="Merge remote-tracking branches 'remotes/origin/pr/2', 'remotes/origin/pr/46', 'remotes/origin/pr/5', 'remotes/origin/pr/64', 'remotes/origin/pr/7' and 'remotes/origin/pr/99'&#10;&#10;Conflicts:&#10;" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/winder/Universal-G-Code-Sender&#10;&#10;Conflicts:&#10;&#9;src/com/willwinder/universalgcodesender/AbstractController.java&#10;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <targetFilters>
+        <filter targetName="onejar-individual-platforms" isVisible="true" />
+        <filter targetName="onejar-individual-platforms-zip" isVisible="true" />
+        <filter targetName="onejar-build-release" isVisible="true" />
+        <filter targetName="-post-clean" isVisible="false" />
+        <filter targetName="default" isVisible="true" />
+        <filter targetName="-pre-init" isVisible="false" />
+        <filter targetName="-init-private" isVisible="false" />
+        <filter targetName="-init-user" isVisible="false" />
+        <filter targetName="-init-project" isVisible="false" />
+        <filter targetName="-do-init" isVisible="false" />
+        <filter targetName="-post-init" isVisible="false" />
+        <filter targetName="-init-check" isVisible="false" />
+        <filter targetName="-init-macrodef-property" isVisible="false" />
+        <filter targetName="-init-macrodef-javac-with-processors" isVisible="false" />
+        <filter targetName="-init-macrodef-javac-without-processors" isVisible="false" />
+        <filter targetName="-init-macrodef-javac" isVisible="false" />
+        <filter targetName="-init-macrodef-junit-init" isVisible="false" />
+        <filter targetName="-init-test-properties" isVisible="false" />
+        <filter targetName="-init-macrodef-junit-single" isVisible="false" />
+        <filter targetName="-init-macrodef-junit-batch" isVisible="false" />
+        <filter targetName="-init-macrodef-junit" isVisible="false" />
+        <filter targetName="-init-macrodef-testng" isVisible="false" />
+        <filter targetName="-init-macrodef-test-impl" isVisible="false" />
+        <filter targetName="-init-macrodef-junit-impl" isVisible="false" />
+        <filter targetName="-init-macrodef-testng-impl" isVisible="false" />
+        <filter targetName="-init-macrodef-test" isVisible="false" />
+        <filter targetName="-init-macrodef-junit-debug" isVisible="false" />
+        <filter targetName="-init-macrodef-junit-debug-batch" isVisible="false" />
+        <filter targetName="-init-macrodef-junit-debug-impl" isVisible="false" />
+        <filter targetName="-init-macrodef-testng-debug" isVisible="false" />
+        <filter targetName="-init-macrodef-testng-debug-impl" isVisible="false" />
+        <filter targetName="-init-macrodef-test-debug-junit" isVisible="false" />
+        <filter targetName="-init-macrodef-test-debug-testng" isVisible="false" />
+        <filter targetName="-init-macrodef-test-debug" isVisible="false" />
+        <filter targetName="profile-init" isVisible="false" />
+        <filter targetName="-profile-pre-init" isVisible="false" />
+        <filter targetName="-profile-post-init" isVisible="false" />
+        <filter targetName="-profile-init-macrodef-profile" isVisible="false" />
+        <filter targetName="-profile-init-check" isVisible="false" />
+        <filter targetName="-init-macrodef-nbjpda" isVisible="false" />
+        <filter targetName="-init-debug-args" isVisible="false" />
+        <filter targetName="-init-macrodef-debug" isVisible="false" />
+        <filter targetName="-init-macrodef-java" isVisible="false" />
+        <filter targetName="-init-macrodef-copylibs" isVisible="false" />
+        <filter targetName="-init-presetdef-jar" isVisible="false" />
+        <filter targetName="-init-ap-cmdline-properties" isVisible="false" />
+        <filter targetName="-init-ap-cmdline-supported" isVisible="false" />
+        <filter targetName="-init-ap-cmdline" isVisible="false" />
+        <filter targetName="init" isVisible="false" />
+        <filter targetName="-deps-jar-init" isVisible="false" />
+        <filter targetName="-warn-already-built-jar" isVisible="false" />
+        <filter targetName="deps-jar" isVisible="false" />
+        <filter targetName="-verify-automatic-build" isVisible="false" />
+        <filter targetName="-check-automatic-build" isVisible="false" />
+        <filter targetName="-clean-after-automatic-build" isVisible="false" />
+        <filter targetName="-pre-pre-compile" isVisible="false" />
+        <filter targetName="-pre-compile" isVisible="false" />
+        <filter targetName="-compile-depend" isVisible="false" />
+        <filter targetName="-do-compile" isVisible="false" />
+        <filter targetName="-copy-persistence-xml" isVisible="false" />
+        <filter targetName="-post-compile" isVisible="false" />
+        <filter targetName="compile" isVisible="true" />
+        <filter targetName="-pre-compile-single" isVisible="false" />
+        <filter targetName="-do-compile-single" isVisible="false" />
+        <filter targetName="-post-compile-single" isVisible="false" />
+        <filter targetName="compile-single" isVisible="false" />
+        <filter targetName="-pre-pre-jar" isVisible="false" />
+        <filter targetName="-pre-jar" isVisible="false" />
+        <filter targetName="-do-jar-without-manifest" isVisible="false" />
+        <filter targetName="-do-jar-with-manifest" isVisible="false" />
+        <filter targetName="-do-jar-with-mainclass" isVisible="false" />
+        <filter targetName="-do-jar-with-libraries-create-manifest" isVisible="false" />
+        <filter targetName="-do-jar-with-libraries-copy-manifest" isVisible="false" />
+        <filter targetName="-do-jar-with-libraries-set-main" isVisible="false" />
+        <filter targetName="-do-jar-with-libraries-set-splashscreen" isVisible="false" />
+        <filter targetName="-do-jar-with-libraries-pack" isVisible="false" />
+        <filter targetName="-do-jar-with-libraries-delete-manifest" isVisible="false" />
+        <filter targetName="-do-jar-with-libraries" isVisible="false" />
+        <filter targetName="-post-jar" isVisible="false" />
+        <filter targetName="jar" isVisible="true" />
+        <filter targetName="run" isVisible="true" />
+        <filter targetName="-do-not-recompile" isVisible="false" />
+        <filter targetName="run-single" isVisible="false" />
+        <filter targetName="run-test-with-main" isVisible="false" />
+        <filter targetName="-debug-start-debugger" isVisible="false" />
+        <filter targetName="-debug-start-debugger-main-test" isVisible="false" />
+        <filter targetName="-debug-start-debuggee" isVisible="false" />
+        <filter targetName="debug" isVisible="true" />
+        <filter targetName="-debug-start-debugger-stepinto" isVisible="false" />
+        <filter targetName="debug-stepinto" isVisible="false" />
+        <filter targetName="-debug-start-debuggee-single" isVisible="false" />
+        <filter targetName="debug-single" isVisible="false" />
+        <filter targetName="-debug-start-debuggee-main-test" isVisible="false" />
+        <filter targetName="debug-test-with-main" isVisible="false" />
+        <filter targetName="-pre-debug-fix" isVisible="false" />
+        <filter targetName="-do-debug-fix" isVisible="false" />
+        <filter targetName="debug-fix" isVisible="false" />
+        <filter targetName="-profile-pre72" isVisible="true" />
+        <filter targetName="-profile-single-pre72" isVisible="true" />
+        <filter targetName="-profile-applet-pre72" isVisible="false" />
+        <filter targetName="-profile-test-single-pre72" isVisible="false" />
+        <filter targetName="-profile-check" isVisible="false" />
+        <filter targetName="profile" isVisible="true" />
+        <filter targetName="profile-single" isVisible="true" />
+        <filter targetName="profile-test-single" isVisible="true" />
+        <filter targetName="profile-test" isVisible="true" />
+        <filter targetName="profile-test-with-main" isVisible="true" />
+        <filter targetName="profile-applet" isVisible="false" />
+        <filter targetName="-javadoc-build" isVisible="false" />
+        <filter targetName="-javadoc-browse" isVisible="false" />
+        <filter targetName="javadoc" isVisible="true" />
+        <filter targetName="-pre-pre-compile-test" isVisible="false" />
+        <filter targetName="-pre-compile-test" isVisible="false" />
+        <filter targetName="-compile-test-depend" isVisible="false" />
+        <filter targetName="-do-compile-test" isVisible="false" />
+        <filter targetName="-post-compile-test" isVisible="false" />
+        <filter targetName="compile-test" isVisible="false" />
+        <filter targetName="-pre-compile-test-single" isVisible="false" />
+        <filter targetName="-do-compile-test-single" isVisible="false" />
+        <filter targetName="-post-compile-test-single" isVisible="false" />
+        <filter targetName="compile-test-single" isVisible="false" />
+        <filter targetName="-pre-test-run" isVisible="false" />
+        <filter targetName="-do-test-run" isVisible="false" />
+        <filter targetName="-post-test-run" isVisible="false" />
+        <filter targetName="test-report" isVisible="false" />
+        <filter targetName="-test-browse" isVisible="false" />
+        <filter targetName="test" isVisible="true" />
+        <filter targetName="-pre-test-run-single" isVisible="false" />
+        <filter targetName="-do-test-run-single" isVisible="false" />
+        <filter targetName="-post-test-run-single" isVisible="false" />
+        <filter targetName="test-single" isVisible="true" />
+        <filter targetName="-do-test-run-single-method" isVisible="false" />
+        <filter targetName="-post-test-run-single-method" isVisible="false" />
+        <filter targetName="test-single-method" isVisible="true" />
+        <filter targetName="-debug-start-debuggee-test" isVisible="false" />
+        <filter targetName="-debug-start-debuggee-test-method" isVisible="false" />
+        <filter targetName="-debug-start-debugger-test" isVisible="false" />
+        <filter targetName="debug-test" isVisible="false" />
+        <filter targetName="debug-test-method" isVisible="false" />
+        <filter targetName="-do-debug-fix-test" isVisible="false" />
+        <filter targetName="debug-fix-test" isVisible="false" />
+        <filter targetName="run-applet" isVisible="false" />
+        <filter targetName="-debug-start-debuggee-applet" isVisible="false" />
+        <filter targetName="debug-applet" isVisible="false" />
+        <filter targetName="-deps-clean-init" isVisible="false" />
+        <filter targetName="-warn-already-built-clean" isVisible="false" />
+        <filter targetName="deps-clean" isVisible="false" />
+        <filter targetName="-do-clean" isVisible="false" />
+        <filter targetName="clean" isVisible="true" />
+        <filter targetName="-check-call-dep" isVisible="false" />
+        <filter targetName="-maybe-call-dep" isVisible="false" />
+      </targetFilters>
+      <expanded value="true" />
+    </buildFile>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/gluegen/gluegen-rt/2.0-rc11/gluegen-rt-2.0-rc11.jar!/jogamp/common/util/locks/RecursiveLockImpl01Unfairish.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="22" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.2932039" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/jogl/jogl-all/2.0-rc11/jogl-all-2.0-rc11.jar!/jogamp/opengl/GLDrawableHelper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="23" selection-start="5171" selection-end="5171" vertical-scroll-proportion="0.76893204" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/jogl/jogl-all/2.0-rc11/jogl-all-2.0-rc11.jar!/com/jogamp/opengl/util/FPSAnimator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="11" selection-start="724" selection-end="724" vertical-scroll-proportion="0.34848484" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="28" selection-start="3495" selection-end="3495" vertical-scroll-proportion="0.45913044">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1814#1841#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/event/InputEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="55" selection-start="2450" selection-end="2450" vertical-scroll-proportion="-0.28695652">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="28" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.33391306" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/jogl/jogl-all/2.0-rc11/jogl-all-2.0-rc11.jar!/javax/media/opengl/GL2.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3200" column="9" selection-start="120774" selection-end="120774" vertical-scroll-proportion="0.30912477" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/java3d/vecmath/1.3.1/vecmath-1.3.1.jar!/javax/vecmath/Point3d.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="156" selection-end="156" vertical-scroll-proportion="0.15454546" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="35" selection-start="2362" selection-end="2362" vertical-scroll-proportion="0.32">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="33" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.33391306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1159" column="28" selection-start="66162" selection-end="66162" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/TinyGController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="25" selection-start="3782" selection-end="3782" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="11" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractCommunicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="31" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblCommunicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="13" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="22" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.26608697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>UGS:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.40831074" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.40831074" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Python 2.6.4 (C:/Program Files (x86)/HeeksCNC/HeeksCNC/python.exe) interpreter library</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.40831074" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>UGS</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.40831074" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: org.rxtx:rxtx:2.1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.40831074" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+
