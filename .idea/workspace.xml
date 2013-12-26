@@ -6,13 +6,19 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="874300d8-a0f4-450c-8307-d7a9dcf59771" name="Default" comment="" />
+    <list default="true" id="874300d8-a0f4-450c-8307-d7a9dcf59771" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java" afterPath="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UGS.iml" afterPath="$PROJECT_DIR$/UGS.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Universal-G-Code-Sender.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387585291449" ignored="false" />
-    <file path="$USER_HOME$/AppData/Local/Temp/post.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387474981276" ignored="false" />
-    <file path="/fragment.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387577805878" ignored="false" />
-    <file path="/pom.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386787425001" ignored="false" />
+    <file path="/Dummy.txt" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388020034610" ignored="false" />
+    <file path="$USER_HOME$/AppData/Local/Temp/post.py" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388011015957" ignored="false" />
+    <file path="/fragment.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388027045806" ignored="false" />
+    <file path="/pom.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388023952221" ignored="false" />
     <file path="/build-impl.xml" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386786707114" ignored="false" />
     <file path="$PROJECT_DIR$/../gnu.io.android/gnu.io.test/gen/gnu/io/test/BuildConfig.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386867739977" ignored="false" />
     <file path="$PROJECT_DIR$/../gnu.io.android/gnu.io.test/gen/gnu/io/test/R.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1386803453345" ignored="false" />
@@ -42,6 +48,10 @@
     <file path="/VisualizerUtils.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387482967344" ignored="false" />
     <file path="/a.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387482270416" ignored="false" />
     <file path="/a.dummy" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1387567833065" ignored="false" />
+    <file path="/Code.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388011852821" ignored="false" />
+    <file path="/GcodeCommand.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388019971479" ignored="false" />
+    <file path="/GcodePreprocessorUtils.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388013228841" ignored="false" />
+    <file path="/GcodeParser.java" changelist="874300d8-a0f4-450c-8307-d7a9dcf59771" time="1388017764384" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +66,42 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="639" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
         <option name="ENABLED" value="true" />
@@ -268,7 +313,22 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" line="95" class="com.willwinder.universalgcodesender.visualizer.VisualizerCanvas" package="com.willwinder.universalgcodesender.visualizer">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/gcode/GcodeParser.java" line="318" class="com.willwinder.universalgcodesender.gcode.GcodeParser" package="com.willwinder.universalgcodesender.gcode">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/gcode/GcodeParser.java" line="325" class="com.willwinder.universalgcodesender.gcode.GcodeParser" package="com.willwinder.universalgcodesender.gcode">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -284,42 +344,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </line_breakpoints>
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -329,55 +354,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GrblController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblController.java">
+      <file leaf-file-name="ResourceBundle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/util/ResourceBundle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="11" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0">
+            <state line="1295" column="0" selection-start="55293" selection-end="56506" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GrblCommunicator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblCommunicator.java">
+      <file leaf-file-name="GcodeParser.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/gcode/GcodeParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="13" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0">
+            <state line="34" column="13" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractController.java">
+      <file leaf-file-name="VisualizerCanvas.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="22" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.26608697">
+            <state line="101" column="63" selection-start="3479" selection-end="3479" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractCommunicator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractCommunicator.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="31" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
+            <state line="6" column="32" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="tag#properties#0;tag#project#0" expanded="false" />
+                <element signature="tag#dependencies#0;tag#project#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build-impl.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nbproject/build-impl.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TinyGController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/TinyGController.java">
+      <file leaf-file-name="project.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nbproject/project.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="25" selection-start="3782" selection-end="3782" vertical-scroll-proportion="0.0">
+            <state line="73" column="16" selection-start="3559" selection-end="3559" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java">
+      <file leaf-file-name="project.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nbproject/project.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1159" column="28" selection-start="66162" selection-end="66162" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="genfiles.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nbproject/genfiles.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="310" column="41" selection-start="14612" selection-end="14617" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="tag#target#0;tag#project#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="one-jar-ant-task.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/one-jar-ant-task.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -403,15 +469,20 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/nbproject/build-impl.xml" />
-        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractCommunicator.java" />
         <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblCommunicator.java" />
         <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" />
         <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblController.java" />
         <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/TinyGController.java" />
         <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractController.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/types/Code.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/gcode/GcodePreprocessorUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/gcode/GcodeParser.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/types/GcodeCommand.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java" />
+        <option value="$PROJECT_DIR$/nbproject/project.properties" />
       </list>
     </option>
   </component>
@@ -494,7 +565,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -508,10 +579,10 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -522,10 +593,175 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meta-inf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="universalgcodesender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="universalgcodesender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="visualizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="universalgcodesender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource Bundle 'MessagesBundle'" />
+              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="universalgcodesender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="i18n" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="universalgcodesender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gcode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Universal-G-Code-Sender" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nbproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="289" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="289" />
     <property name="OverrideImplement.combined" value="true" />
@@ -555,7 +791,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="editor.preferences.smartKeys" />
+    <property name="options.lastSelected" value="reference.projectsettings.compiler.javacompiler" />
     <property name="project.structure.side.proportion" value="0.40831074" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -569,6 +805,11 @@
     <option name="myDjangoConsoleState">
       <PyConsoleSettings />
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\merrellm\Documents\GitHub\Universal-G-Code-Sender\src\com\willwinder\universalgcodesender\i18n" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.MainWindow">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -781,10 +1022,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -798,14 +1039,14 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37566704" sideWeight="0.67001116" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37540108" sideWeight="0.79375696" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3004269" sideWeight="0.6722408" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16488793" sideWeight="0.67001116" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20624304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2395722" sideWeight="0.79375696" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20624304" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35451505" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35372636" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1037,105 +1278,125 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/gluegen/gluegen-rt/2.0-rc11/gluegen-rt-2.0-rc11.jar!/jogamp/common/util/locks/RecursiveLockImpl01Unfairish.class">
+    <entry file="file://$PROJECT_DIR$/manifest.mf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="22" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.2932039" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/jogl/jogl-all/2.0-rc11/jogl-all-2.0-rc11.jar!/jogamp/opengl/GLDrawableHelper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="23" selection-start="5171" selection-end="5171" vertical-scroll-proportion="0.76893204" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/jogl/jogl-all/2.0-rc11/jogl-all-2.0-rc11.jar!/com/jogamp/opengl/util/FPSAnimator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="11" selection-start="724" selection-end="724" vertical-scroll-proportion="0.34848484" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="28" selection-start="3495" selection-end="3495" vertical-scroll-proportion="0.45913044">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1814#1841#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/event/InputEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="55" selection-start="2450" selection-end="2450" vertical-scroll-proportion="-0.28695652">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/awt/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="28" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.33391306" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jogamp/jogl/jogl-all/2.0-rc11/jogl-all-2.0-rc11.jar!/javax/media/opengl/GL2.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3200" column="9" selection-start="120774" selection-end="120774" vertical-scroll-proportion="0.30912477" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/java3d/vecmath/1.3.1/vecmath-1.3.1.jar!/javax/vecmath/Point3d.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="156" selection-end="156" vertical-scroll-proportion="0.15454546" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="35" selection-start="2362" selection-end="2362" vertical-scroll-proportion="0.32">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="33" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.33391306">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1159" column="28" selection-start="66162" selection-end="66162" vertical-scroll-proportion="0.0">
+        <state line="701" column="98" selection-start="39970" selection-end="39970" vertical-scroll-proportion="0.35889572">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/TinyGController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/SettingsFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="25" selection-start="3782" selection-end="3782" vertical-scroll-proportion="0.0">
+        <state line="36" column="0" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.24927114">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/i18n/Localization.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="11" selection-start="2265" selection-end="2265" vertical-scroll-proportion="0.0">
+        <state line="39" column="0" selection-start="1237" selection-end="1237" vertical-scroll-proportion="0.6034985">
+          <folding>
+            <element signature="e#0#1439#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/i18n/MessagesBundle.properties">
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractCommunicator.java">
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/i18n/MessagesBundle_en_US.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/GrblCommunicator.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_45/src.zip!/java/util/ResourceBundle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="13" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.0">
+        <state line="1295" column="0" selection-start="55293" selection-end="56506" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/AbstractController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/gcode/GcodeParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="22" selection-start="1726" selection-end="1726" vertical-scroll-proportion="0.26608697">
+        <state line="34" column="13" selection-start="1097" selection-end="1097" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/willwinder/universalgcodesender/visualizer/VisualizerCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="63" selection-start="3479" selection-end="3479" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="310" column="41" selection-start="14612" selection-end="14617" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="tag#target#0;tag#project#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/one-jar-ant-task.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="32" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="tag#properties#0;tag#project#0" expanded="false" />
+            <element signature="tag#dependencies#0;tag#project#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nbproject/build-impl.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nbproject/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="16" selection-start="3559" selection-end="3559" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nbproject/project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nbproject/genfiles.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1174,7 +1435,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.40831074" />
               </list>
             </option>
           </splitter-proportions>
