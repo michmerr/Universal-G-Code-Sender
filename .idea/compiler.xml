@@ -25,6 +25,9 @@
         <module name="UGS" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="UGS" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 
