@@ -42,14 +42,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import javax.print.attribute.DateTimeSyntax;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -960,7 +960,7 @@ implements KeyListener, ControllerListener {
     }// </editor-fold>//GEN-END:initComponents
     /** End of generated code.
      */
-    
+
     /** Generated callback functions, hand coded.
      */
     private void scrollWindowCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scrollWindowCheckBoxActionPerformed
@@ -1217,10 +1217,6 @@ implements KeyListener, ControllerListener {
                 fileTextField.setText(fileChooser.getSelectedFile().getAbsolutePath());
                 gcodeFile = fileChooser.getSelectedFile();
                 loadFile(gcodeFile);
-                Integer numRows = Utils.processFile(gcodeFile);
-
-                // Reset send context.
-                this.resetSentRowLabels(numRows);
 
                 updateControlsForState(ControlState.FILE_SELECTED);
                         
@@ -1302,24 +1298,20 @@ implements KeyListener, ControllerListener {
                     @Override
                     public void run() {
                         int sent = controller.rowsSent();
-                        int remainingRows = controller.rowsRemaining();
 
                         // Early exit condition.
                         if (sent == 0) { return; }
 
                         long elapsedTime = controller.getSendDuration();
                         durationValueLabel.setText(Utils.formattedMillis(elapsedTime));
-
-                        long timePerRow = elapsedTime / sent;
-                        long remainingTime = timePerRow * remainingRows;
-                        remainingTimeValueLabel.setText(Utils.formattedMillis(remainingTime));
+                        remainingTimeValueLabel.setText(Utils.formattedMillis(jobEstimate - elapsedTime));
                     }
                 });
 
             }
         };
 
-        this.resetSentRowLabels(Integer.parseInt(this.rowsValueLabel.getText()));
+        this.resetSentRowLabels(Integer.parseInt(this.rowsValueLabel.getText()), this.jobEstimate);
 
         if (timer != null){ timer.stop(); }
         timer = new Timer(1000, actionListener);
@@ -1616,7 +1608,7 @@ implements KeyListener, ControllerListener {
                 this.updateManualControls(false);
                 this.updateWorkflowControls(false);
                 this.updateFileControls(false);
-                this.resetSentRowLabels(0);
+                this.resetSentRowLabels(0, 0L);
                 this.updateControlsStopSending();
                 this.setStatusColorForState("");
                 break;
@@ -1721,10 +1713,10 @@ implements KeyListener, ControllerListener {
         this.requestStateInformation.setEnabled(enabled);
     }
     
-    private void resetSentRowLabels(Integer numRows) {
+    private void resetSentRowLabels(Integer numRows, Long estimatedMilliseconds) {
         // Reset labels
         this.durationValueLabel.setText("00:00:00");
-        this.remainingTimeValueLabel.setText("--:--:--");
+        this.remainingTimeValueLabel.setText(Utils.formattedMillis(estimatedMilliseconds));
         this.sentRowsValueLabel.setText("0");
         this.remainingRowsValueLabel.setText(numRows.toString());
         rowsValueLabel.setText(numRows.toString());
@@ -1782,8 +1774,9 @@ implements KeyListener, ControllerListener {
         commPortComboBox.removeAllItems();
         
         List<CommPortIdentifier> portList = CommUtils.getSerialPortList();
+        List<String> pseudoPortList = CommUtils.getStdIOConnections();
         
-        if (portList.size() < 1) {
+        if (portList.size() < 1 && pseudoPortList.size() < 1) {
             MainWindow.displayErrorDialog(Localization.getString("mainWindow.error.noSerialPort"));
         } else {
             // Sort?
@@ -1795,7 +1788,11 @@ implements KeyListener, ControllerListener {
                 CommPortIdentifier portIdentifier = portIter.next();
                 commPortComboBox.addItem(portIdentifier.getName());
             }
-            
+
+            for (String pName : pseudoPortList) {
+                commPortComboBox.addItem(pName);
+            }
+
             commPortComboBox.setSelectedIndex(0);
         }
     }
@@ -1815,10 +1812,10 @@ implements KeyListener, ControllerListener {
     }
     
     private void loadFile(java.io.File file) throws FileNotFoundException, IOException {
-        Integer numRows = Utils.processFile(file);
-
+        List<String> lines = Utils.processFile(file);
+        this.jobEstimate = this.controller.getJobLengthEstimate(lines);
         // Reset send context.
-        this.resetSentRowLabels(numRows);
+        this.resetSentRowLabels(lines.size(), this.jobEstimate);
 
         if (this.vw != null) {
             vw.setGcodeFile(file.getAbsolutePath());
@@ -1950,16 +1947,16 @@ implements KeyListener, ControllerListener {
         remainingTimeValueLabel.setText(Utils.formattedMillis(0));
 
         this.updateControlsForState(ControlState.COMM_IDLE);
-        
+
         if (success) {
-            JOptionPane.showMessageDialog(new JFrame(), 
+            JOptionPane.showMessageDialog(new JFrame(),
                     Localization.getString("mainWindow.ui.jobComplete") +this.durationValueLabel.getText(),
                     Localization.getString("success"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             displayErrorDialog(Localization.getString("mainWindow.error.jobComplete"));
         }
     }
-    
+
     @Override
     public void commandQueued(GcodeCommand command) {
         this.commandTable.addRow(command);
@@ -1994,12 +1991,14 @@ implements KeyListener, ControllerListener {
             @Override
             public void run() {
                 commandTable.updateRow(command);
-                
-                // decrement remaining rows
-                int remaining = Integer.parseInt(remainingRowsValueLabel.getText());
-                if (remaining > 0) {
-                    remaining--;
-                    remainingRowsValueLabel.setText("" + remaining);
+
+                if (controller.isStreamingFile()) {
+                    // decrement remaining rows
+                    int remaining = Integer.parseInt(remainingRowsValueLabel.getText());
+                    if (remaining > 0) {
+                        remaining--;
+                        remainingRowsValueLabel.setText("" + remaining);
+                    }
                 }
                 if (vw != null) {
                     vw.setCompletedCommandNumber(controller.rowsSent());
@@ -2041,7 +2040,7 @@ implements KeyListener, ControllerListener {
     
     @Override
     public void postProcessData(int numRows) {
-        resetSentRowLabels(numRows);
+        //resetSentRowLabels(numRows);
     }
     
     // My Variables
@@ -2056,6 +2055,7 @@ implements KeyListener, ControllerListener {
     private AbstractController controller;
     
     private int sentRows = 0;
+    private long jobEstimate = 0L;
     private boolean G91Mode = false;
 
     // Other windows

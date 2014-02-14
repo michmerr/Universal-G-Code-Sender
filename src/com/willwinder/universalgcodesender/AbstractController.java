@@ -884,4 +884,6 @@ public abstract class AbstractController implements SerialCommunicatorListener {
             }
         }
     }
+
+    public abstract long getJobLengthEstimate(List<String> commands);
 }

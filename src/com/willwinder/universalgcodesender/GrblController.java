@@ -23,12 +23,12 @@ package com.willwinder.universalgcodesender;
 
 import com.willwinder.universalgcodesender.gcode.GcodeCommandCreator;
 import com.willwinder.universalgcodesender.i18n.Localization;
+import com.willwinder.universalgcodesender.listeners.GrblSettingsListener;
 import com.willwinder.universalgcodesender.types.GcodeCommand;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.*;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Timer;
@@ -43,7 +43,8 @@ public class GrblController extends AbstractController {
     private double grblVersion = 0.0;        // The 0.8 in 'Grbl 0.8c'
     private String grblVersionLetter = null; // The c in 'Grbl 0.8c'
     private Boolean isReady = false;         // Not ready until version is received.
-    
+    private GrblSettingsListener settings;
+
     // Grbl status members.
     private GrblUtils.Capabilities positionMode = null;
     private Boolean realTimeCapable = false;
@@ -62,12 +63,148 @@ public class GrblController extends AbstractController {
         this.commandCreator = new GcodeCommandCreator();
         this.positionPollTimer = createPositionPollTimer();
         this.maxZLocation = -1;
+        try {
+            this.settings = new GrblSettingsListener(this);
+        } catch (Exception e) {
+
+        }
     }
     
     public GrblController() {
         this(new GrblCommunicator()); //f4grx: connection created at opencomm() time
     }
-    
+
+    @Override
+    public long getJobLengthEstimate(List<String> commands) {
+        long result = 0;
+        try {
+            ProcessBuilder pb = new ProcessBuilder("sim.exe", "1");
+            Process pseudoPort = pb.start();
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(pseudoPort.getOutputStream()));
+            ProcessBuffer parser = new ProcessBuffer(pseudoPort);
+            Thread parserThread = new Thread(parser);
+            parserThread.start();
+
+            for (String setting : settings.getSettings()) {
+                out.write(setting);
+                out.newLine();
+            }
+
+            for (String command : commands) {
+                System.out.println(command);
+                out.write(command);
+                out.newLine();
+            }
+
+            out.close();
+
+            pseudoPort.waitFor();
+
+            String[] buffer = parser.getErrLines();
+            for (int i = buffer.length - 1; i >= 0; i--) {
+                String line = buffer[i].trim();
+                if (line.startsWith("#"))
+                    continue;
+                int ci = line.indexOf(',');
+                if (ci > 0) {
+                    String secondsString = line.substring(0, ci);
+                    Double seconds = 0.0;
+                    try {
+                        seconds = Double.parseDouble(secondsString);
+                    } catch (Exception e) {
+                        continue;
+                    }
+                    result = StrictMath.round(seconds * 1000);
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return result;
+    }
+
+    public class ProcessBuffer implements Runnable {
+        Process process;
+        List<String> stderrList;
+        List<String> stdoutList;
+        List<String> outList;
+
+        public ProcessBuffer(Process process) {
+            this.process = process;
+        }
+
+        public String[] getErrLines() {
+            return getLines(stderrList);
+        }
+
+        public String[] getStdLines() {
+            return getLines(stdoutList);
+        }
+
+        public String[] getAllLines() {
+            return getLines(outList);
+        }
+
+        private String[] getLines(List<String> list) {
+            if (list == null)
+                return null;
+
+            String[] result = new String[list.size()];
+
+            return list.toArray(result);
+        }
+
+        @Override
+        public void run() {
+            outList = new ArrayList<String>();
+            List<String> syncList = Collections.synchronizedList(outList);
+            stderrList = new ArrayList<String>();
+            stdoutList = new ArrayList<String>();
+            Thread errReader = new Thread(new Buffer(process.getErrorStream(), stderrList, syncList));
+            Thread stdReader = new Thread(new Buffer(process.getInputStream(), stdoutList, syncList));
+
+            stdReader.start();
+            errReader.start();
+
+            try {
+                process.waitFor();
+            } catch (InterruptedException ie) {
+                return;
+            }
+        }
+    }
+
+    public class Buffer implements Runnable {
+
+        private BufferedReader reader;
+        List<String> buffer;
+        List<String> globalBuffer;
+
+        public Buffer(InputStream in, List<String> buffer, List<String> globalBuffer) {
+            reader = new BufferedReader(new InputStreamReader(in));
+            this.buffer = buffer;
+            this.globalBuffer = globalBuffer;
+        }
+
+        @Override
+        public void run() {
+            buffer.clear();
+            String line;
+
+            try {
+                while ((line = reader.readLine()) != null) {
+                    buffer.add(line);
+                    globalBuffer.add(line);
+                }
+            } catch (IOException ioe) {
+                return;
+            }
+        }
+    }
+
     /***********************
      * API Implementation.
      ***********************

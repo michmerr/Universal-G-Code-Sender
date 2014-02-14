@@ -25,6 +25,8 @@ package com.willwinder.universalgcodesender;
 
 import com.willwinder.universalgcodesender.types.GcodeCommand;
 import gnu.io.CommPortIdentifier;
+
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -41,7 +43,7 @@ public class CommUtils {
     static protected java.util.List<CommPortIdentifier> getSerialPortList() {
         int type = CommPortIdentifier.PORT_SERIAL;
         
-        java.util.Enumeration<CommPortIdentifier> portEnum = 
+        java.util.Enumeration<CommPortIdentifier> portEnum =
                 CommPortIdentifier.getPortIdentifiers();
         java.util.List<CommPortIdentifier> returnList =
                 new java.util.ArrayList<CommPortIdentifier>();
@@ -102,5 +104,11 @@ public class CommUtils {
             characters += next.length() + 1;
         }
         return characters;
+    }
+
+    static protected List<String> getStdIOConnections() {
+        List<String> result = new ArrayList<String>();
+        result.add("GRBL Simulator");
+        return result;
     }
 }
