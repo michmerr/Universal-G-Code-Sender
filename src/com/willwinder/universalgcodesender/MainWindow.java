@@ -1950,7 +1950,7 @@ implements KeyListener, ControllerListener {
 
         if (success) {
             JOptionPane.showMessageDialog(new JFrame(),
-                    Localization.getString("mainWindow.ui.jobComplete") +this.durationValueLabel.getText(),
+                    Localization.getString("mainWindow.ui.jobComplete") + " " + this.durationValueLabel.getText(),
                     Localization.getString("success"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             displayErrorDialog(Localization.getString("mainWindow.error.jobComplete"));
