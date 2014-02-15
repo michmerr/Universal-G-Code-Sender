@@ -28,6 +28,7 @@ import com.willwinder.universalgcodesender.i18n.Localization;
 import com.willwinder.universalgcodesender.listeners.ControllerListener;
 import com.willwinder.universalgcodesender.listeners.SerialCommunicatorListener;
 import com.willwinder.universalgcodesender.types.GcodeCommand;
+import com.willwinder.universalgcodesender.types.Job;
 import com.willwinder.universalgcodesender.types.PointSegment;
 import com.willwinder.universalgcodesender.visualizer.VisualizerUtils;
 import java.io.File;
@@ -182,7 +183,8 @@ public abstract class AbstractController implements SerialCommunicatorListener {
     
     // This metadata needs to be cached instead of inferred from queue's because
     // in case of a cancel the queues will be cleared.
-    private int numCommands = 0;
+    private int numCommandsProcessed = 0;
+    private int numCommandsStreamed = 0;
     private int numCommandsSent = 0;
     private int numCommandsSkipped = 0;
     private int numCommandsCompleted = 0;
@@ -205,7 +207,7 @@ public abstract class AbstractController implements SerialCommunicatorListener {
         this.comm.setListenAll(this);
         
         this.gcp = new GcodeParser();
-        
+
         this.prepQueue = new LinkedList<GcodeCommand>();
         this.outgoingQueue = new LinkedList<GcodeCommand>();
         this.awaitingResponseQueue = new LinkedList<GcodeCommand>();
@@ -388,9 +390,13 @@ public abstract class AbstractController implements SerialCommunicatorListener {
             return System.currentTimeMillis() - this.streamStart;
         }
     }
-    
+
+    public int rowsInQueue() {
+        return this.prepQueue.size();
+    }
+
     public int rowsInSend() {
-        return this.numCommands;
+        return this.numCommandsStreamed;
     }
     
     public int rowsSent() {
@@ -398,7 +404,7 @@ public abstract class AbstractController implements SerialCommunicatorListener {
     }
     
     public int rowsRemaining() {
-        return this.numCommands - this.numCommandsCompleted - this.numCommandsSkipped;
+        return this.numCommandsStreamed - this.numCommandsCompleted - this.numCommandsSkipped;
     }
     
     /**
@@ -469,11 +475,11 @@ public abstract class AbstractController implements SerialCommunicatorListener {
         GcodeCommand command; // = this.commandCreator.createCommand(commandString);
         
         // TODO: Expand this to handle canned cycles (Issue#49)
-        String[] processed = this.preprocessCommand(commandString);
+        String[] processed = this.preprocessCommand(commandString, true);
 
         for (String s : processed) {
             command = new GcodeCommand(s.trim());
-            command.setCommandNumber(numCommands++);
+            command.setCommandNumber(numCommandsProcessed++);
             
             if (command.getCommandString().length() > this.maxCommandLength) {
                 throw new Exception("Command #" + command.getCommandNumber()
@@ -485,7 +491,7 @@ public abstract class AbstractController implements SerialCommunicatorListener {
             this.prepQueue.add(command);
         }        
     }
-    
+
     /**
      * Appends file of commands to a queue awaiting to be sent. Exception is
      * thrown on file IO errors.
@@ -530,7 +536,7 @@ public abstract class AbstractController implements SerialCommunicatorListener {
         this.isStreaming = true;
         this.streamStop = 0;
         this.streamStart = System.currentTimeMillis();
-        this.numCommands = 0;
+        this.numCommandsStreamed = 0;
         this.numCommandsSent = 0;
         this.numCommandsSkipped = 0;
         this.numCommandsCompleted = 0;
@@ -540,18 +546,17 @@ public abstract class AbstractController implements SerialCommunicatorListener {
             // Send all queued commands and wait for a response.
             GcodeCommand command;
             while (this.prepQueue.size() > 0) {
-                numCommands++;
+                numCommandsStreamed++;
                 command = this.prepQueue.remove();
                 if (this.saveToFileMode) {
                     this.outputFileWriter.println(command.getCommandString());
                 } else {
                     queueCommandForComm(command);
                 }
-                this.numCommands++;
             }
             
             // Inform the GUI of the postprocessed number of commands.
-            this.dispatchPostProcessData(numCommands);
+            this.dispatchPostProcessData(numCommandsStreamed);
         } catch(Exception e) {
             e.printStackTrace();
             this.isStreaming = false;
@@ -630,9 +635,26 @@ public abstract class AbstractController implements SerialCommunicatorListener {
 
         return null;
     }
-    
-    // No longer a listener event
-    private String[] preprocessCommand(String command) {
+
+
+    public Job loadGCodeFile(File file) {
+        Job result = new Job();
+        try {
+            List<String> lines = VisualizerUtils.readFiletoArrayList(file.getAbsolutePath());
+            for (String line : lines) {
+                for (String command : preprocessCommand(line, false)) {
+                    result.getRawLines().add(command);
+                }
+            }
+        } catch (IOException ioe) {
+
+        }
+
+        return result;
+
+    }
+
+    private String[] preprocessCommand(String command, boolean notify) {
         String[] arr;
         String newCommand = command;
 
@@ -640,7 +662,7 @@ public abstract class AbstractController implements SerialCommunicatorListener {
         newCommand = GcodePreprocessorUtils.removeComment(newCommand);
 
         // Check for comment if length changed while preprocessing.
-        if (command.length() != newCommand.length()) {
+        if (notify && command.length() != newCommand.length()) {
             dispatchCommandCommment(GcodePreprocessorUtils.parseComment(command));
         }
         
@@ -733,7 +755,7 @@ public abstract class AbstractController implements SerialCommunicatorListener {
                 e.printStackTrace();
             }
         }
-        
+
         this.awaitingResponseQueue.add(c);
         
         dispatchCommandSent(c);
@@ -787,14 +809,9 @@ public abstract class AbstractController implements SerialCommunicatorListener {
             String streamName = "queued commands";
             if (this.gcodeFile != null) {
                 streamName = this.gcodeFile.getName();
-            } 
-            
-            boolean status = true;
-            if (this.rowsRemaining() != 0) {
-                status = false;
             }
             
-            boolean isSuccess = (this.numCommands == (this.numCommandsSent + this.numCommandsSkipped));
+            boolean isSuccess = (this.numCommandsStreamed == (this.numCommandsCompleted + this.numCommandsSkipped));
             this.fileStreamComplete(streamName, isSuccess);
         }
     }

@@ -79,9 +79,9 @@ public class GrblController extends AbstractController {
         long result = 0;
         try {
             ProcessBuilder pb = new ProcessBuilder("sim.exe", "1");
-            Process pseudoPort = pb.start();
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(pseudoPort.getOutputStream()));
-            ProcessBuffer parser = new ProcessBuffer(pseudoPort);
+            Process simulation = pb.start();
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(simulation.getOutputStream()));
+            ProcessBuffer parser = new ProcessBuffer(simulation);
             Thread parserThread = new Thread(parser);
             parserThread.start();
 
@@ -91,14 +91,13 @@ public class GrblController extends AbstractController {
             }
 
             for (String command : commands) {
-                System.out.println(command);
                 out.write(command);
                 out.newLine();
             }
 
             out.close();
 
-            pseudoPort.waitFor();
+            simulation.waitFor();
 
             String[] buffer = parser.getErrLines();
             for (int i = buffer.length - 1; i >= 0; i--) {
