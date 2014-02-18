@@ -25,6 +25,7 @@ package com.willwinder.universalgcodesender.gcode;
 
 import com.willwinder.universalgcodesender.types.PointSegment;
 
+import java.text.DecimalFormat;
 import java.util.*;
 import javax.vecmath.Point3d;
 
@@ -35,11 +36,20 @@ import javax.vecmath.Point3d;
 public class GcodeParser {
     // Current state
     private boolean isMetric = true;
-    private boolean isAbsoluteMode = true;
-    private boolean isAbsoluteIJKMode = false;
+    private boolean inAbsoluteMode = true;
+    private boolean inAbsoluteIJKMode = false;
     private String lastGcodeCommand = "";
     private Point3d currentPoint = null;
     private int commandNumber = 0;
+
+    // Settings
+    private double speedOverride = -1;
+    private int truncateDecimalLength = 40;
+    private boolean removeAllWhitespace = true;
+    private boolean convertArcsToLines = false;
+    private double smallArcThreshold = 1.0;
+    // Not configurable outside, but maybe it should be.
+    private double smallArcSegmentLength = 0.3;
     
     // The gcode.
     List<PointSegment> points;
@@ -47,7 +57,55 @@ public class GcodeParser {
     public GcodeParser() {
         this.reset();
     }
-    
+
+    public boolean getConvertArcsToLines() {
+        return convertArcsToLines;
+    }
+
+    public void setConvertArcsToLines(boolean convertArcsToLines) {
+        this.convertArcsToLines = convertArcsToLines;
+    }
+
+    public boolean getRemoveAllWhitespace() {
+        return removeAllWhitespace;
+    }
+
+    public void setRemoveAllWhitespace(boolean removeAllWhitespace) {
+        this.removeAllWhitespace = removeAllWhitespace;
+    }
+
+    public double getSmallArcSegmentLength() {
+        return smallArcSegmentLength;
+    }
+
+    public void setSmallArcSegmentLength(double smallArcSegmentLength) {
+        this.smallArcSegmentLength = smallArcSegmentLength;
+    }
+
+    public double getSmallArcThreshold() {
+        return smallArcThreshold;
+    }
+
+    public void setSmallArcThreshold(double smallArcThreshold) {
+        this.smallArcThreshold = smallArcThreshold;
+    }
+
+    public double getSpeedOverride() {
+        return speedOverride;
+    }
+
+    public void setSpeedOverride(double speedOverride) {
+        this.speedOverride = speedOverride;
+    }
+
+    public int getTruncateDecimalLength() {
+        return truncateDecimalLength;
+    }
+
+    public void setTruncateDecimalLength(int truncateDecimalLength) {
+        this.truncateDecimalLength = truncateDecimalLength;
+    }
+
     // Resets the current state.
     final public void reset() {
         this.currentPoint = new Point3d();
@@ -92,9 +150,9 @@ public class GcodeParser {
     
     /**
      * Expands the last point in the list if it is an arc according to the
-     * provided parameters.
+     * the parsers settings.
      */
-    public List<PointSegment> expandArcWithParameters(double minLengthMM, double segmentLengthMM, int roundTo) {
+    public List<PointSegment> expandArc() {
         PointSegment startSegment = this.points.get(this.points.size() - 2);
         PointSegment lastSegment = this.points.get(this.points.size() - 1);
 
@@ -116,7 +174,7 @@ public class GcodeParser {
         List<Point3d> expandedPoints =
                 GcodePreprocessorUtils.generatePointsAlongArcBDring(
                         start, end, center, clockwise, radius,
-                        minLengthMM, segmentLengthMM);
+                        smallArcThreshold, smallArcSegmentLength);
 
         
         // Validate output of expansion.
@@ -204,7 +262,7 @@ public class GcodeParser {
 
         Point3d center =
                 GcodePreprocessorUtils.updateCenterWithCommand(
-                        args, this.currentPoint, nextPoint, this.isAbsoluteIJKMode, clockwise);
+                        args, this.currentPoint, nextPoint, this.inAbsoluteIJKMode, clockwise);
 
         double radius = GcodePreprocessorUtils.parseCoord(args, 'R');
 
@@ -231,7 +289,7 @@ public class GcodeParser {
         PointSegment ps = null;
         Point3d nextPoint = 
             GcodePreprocessorUtils.updatePointWithCommand(
-            args, this.currentPoint, this.isAbsoluteMode);
+            args, this.currentPoint, this.inAbsoluteMode);
 
         if (code.length() > 1 && code.startsWith("0"))
             code = code.substring(1);
@@ -262,20 +320,124 @@ public class GcodeParser {
                 break;
 
             case "90":
-                this.isAbsoluteMode = true;
+                this.inAbsoluteMode = true;
                 break;
             case "90.1":
-                this.isAbsoluteIJKMode = true;
+                this.inAbsoluteIJKMode = true;
                 break;
 
             case "91":
-                this.isAbsoluteMode = false;
+                this.inAbsoluteMode = false;
                 break;
             case "91.1":
-                this.isAbsoluteIJKMode = false;
+                this.inAbsoluteIJKMode = false;
                 break;
         }
         this.lastGcodeCommand = code;
         return ps;
+    }
+
+    public List<String> preprocessCommands(Collection<String> commands) {
+        List<String> result = new ArrayList<>(commands.size());
+
+        for (String command : commands) {
+            result.addAll(preprocessCommand(command));
+        }
+
+        return result;
+    }
+
+    public List<String> preprocessCommand(String command) {
+        List<String> result = new ArrayList<>();
+        boolean hasComment = false;
+
+        // Remove comments from command.
+        String newCommand = GcodePreprocessorUtils.removeComment(command);
+        String rawCommand = newCommand;
+        hasComment = (newCommand.length() != command.length());
+
+        if (removeAllWhitespace) {
+            newCommand = GcodePreprocessorUtils.removeAllWhitespace(newCommand);
+        }
+
+        if (newCommand.length() > 0) {
+
+            // Override feed speed
+            if (speedOverride > 0) {
+                newCommand = GcodePreprocessorUtils.overrideSpeed(newCommand, speedOverride);
+            }
+
+            if (truncateDecimalLength > 0) {
+                newCommand = GcodePreprocessorUtils.truncateDecimals(truncateDecimalLength, newCommand);
+            }
+
+            // If this is enabled we need to parse the gcode as we go along.
+            if (convertArcsToLines) { // || this.expandCannedCycles) {
+                List<String> arcLines = convertArcsToLines(newCommand);
+                if (arcLines != null) {
+                    result.addAll(arcLines);
+                } else {
+                    result.add(newCommand);
+                }
+            } else if (hasComment) {
+                // Maintain line level comment.
+                result.add(command.replace(rawCommand, newCommand));
+            } else {
+                result.add(newCommand);
+            }
+        } else if (hasComment) {
+            // Reinsert comment-only lines.
+            result.add(command);
+        }
+
+
+
+        return result;
+    }
+
+    public List<String> convertArcsToLines(String command) {
+
+        List<String> result = null;
+
+        // Save off the start of the arc for later.
+        Point3d start = new Point3d(this.currentPoint);
+
+        PointSegment ps = addCommand(command);
+
+        if (ps == null || !ps.isArc()) {
+            return result;
+        }
+
+        List<PointSegment> psl = expandArc();
+
+        if (psl == null) {
+            return result;
+        }
+
+        int index;
+        StringBuilder sb;
+
+        // Create the commands...
+        result = new ArrayList<String>(psl.size());
+
+
+        // Setup decimal formatter.
+        sb = new StringBuilder("#.");
+        for (index = 0; index < truncateDecimalLength; index++) {
+            sb.append("#");
+        }
+        DecimalFormat df = new DecimalFormat(sb.toString());
+        index = 0;
+
+        // Create an array of new commands out of the of the segments in psl.
+        // Don't add them to the gcode parser since it is who expanded them.
+        for (PointSegment segment : psl) {
+            Point3d end = segment.point();
+            result.add(GcodePreprocessorUtils.generateG1FromPoints(start, end, this.inAbsoluteMode, df));
+            start = segment.point();
+        }
+
+        return result;
+
     }
 }
