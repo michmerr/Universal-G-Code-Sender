@@ -122,10 +122,15 @@ public class GcodeViewParse {
             // start is null for the first iteration.
             if (start != null) {
                 // Expand arc for graphics.
-                if (ps.isArc()) {
-                    List<Point3d> points =
-                        GcodePreprocessorUtils.generatePointsAlongArcBDring(
-                        start, end, ps.center(), ps.isClockwise(), ps.getRadius(), minArcLength, arcSegmentLength);
+                // Set null for lines.
+                // Arcs below minimum size will return null.
+                List<Point3d> points = ps.isArc() 
+                        ? GcodePreprocessorUtils.generatePointsAlongArcBDring(
+                                start, end, ps.center(), ps.isClockwise(), 
+                                ps.getRadius(), minArcLength, arcSegmentLength)
+                        : null;
+                
+                if (points != null) {   
                     // Create line segments from points.
                     Point3d startPoint = start;
                     for (Point3d nextPoint : points) {
@@ -137,7 +142,7 @@ public class GcodeViewParse {
                         lines.add(ls);
                         startPoint = nextPoint;
                     }
-                // Line
+                // Line or arc below minimum length
                 } else {
                     ls = new LineSegment(start, end, num++);
                     ls.setIsArc(ps.isArc());
