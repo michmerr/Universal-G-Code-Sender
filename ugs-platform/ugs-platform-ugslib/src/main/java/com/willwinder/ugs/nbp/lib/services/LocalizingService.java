@@ -123,7 +123,7 @@ public class LocalizingService {
     public final static String StopActionId = "com.willwinder.ugs.nbp.core.actions.StopAction";
     public final static String StopCategory = "Machine";
 
-    public final static String PendantTitleKey = "mainWindow.swing.pendantButton";
+    public final static String PendantTitleKey = "mainWindow.swing.pendant";
     public final static String PendantTitle = Localization.getString(PendantTitleKey, lang);
     public final static String PendantWindowPath = "Menu/Machine";
     public final static String PendantActionId = "com.willwinder.ugs.nbp.core.actions.PendantAction";
@@ -138,17 +138,17 @@ public class LocalizingService {
 
     public final static String ConnectionBaudRateToolbarTitle = Localization.getString("mainWindow.swing.baudrate.toolbarTitle", lang);
     public final static String ConnectionBaudRateToolbarTitleKey = "mainWindow.swing.baudrate.toolbarTitle";
-    public final static String ConnectionBaudRateToolbarActionId = "com.willwinder.ugs.nbp.core.toolbars.ConnectionBaudRateToolbar";
+    public final static String ConnectionBaudRateToolbarActionId = "com.willwinder.ugs.nbp.core.actions.BaudRateAction";
     public final static String ConnectionBaudRateToolbarCategory = "Machine";
 
     public final static String ConnectionFirmwareToolbarTitle = Localization.getString("mainWindow.swing.firmware.toolbarTitle", lang);
     public final static String ConnectionFirmwareToolbarTitleKey = "mainWindow.swing.firmware.toolbarTitle";
-    public final static String ConnectionFirmwareToolbarActionId = "com.willwinder.ugs.nbp.core.toolbars.ConnectionFirmwareToolbar";
+    public final static String ConnectionFirmwareToolbarActionId = "com.willwinder.ugs.nbp.core.actions.FirmwareAction";
     public final static String ConnectionFirmwareToolbarCategory = "Machine";
 
     public final static String ConnectionSerialPortToolbarTitle = Localization.getString("mainWindow.swing.serialport.toolbarTitle", lang);
     public final static String ConnectionSerialPortToolbarTitleKey = "mainWindow.swing.firmware.toolbarTitle";
-    public final static String ConnectionSerialPortToolbarActionId = "com.willwinder.ugs.nbp.core.toolbars.ConnectionSerialPortToolbar";
+    public final static String ConnectionSerialPortToolbarActionId = "com.willwinder.ugs.nbp.core.actions.PortAction";
     public final static String ConnectionSerialPortToolbarCategory = "Machine";
 
     public final static String FileBrowserToolbarTitle = Localization.getString("mainWindow.swing.filebrowser.toolbarTitle", lang);

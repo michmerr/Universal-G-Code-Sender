@@ -231,13 +231,14 @@ public class GrblController extends AbstractController {
 
             else if (GrblUtils.isGrblSettingMessage(response)) {
                 GrblSettingMessage message = new GrblSettingMessage(response);
+                processed = message.toString();
                 if (message.isReportingUnits()) {
                     setReportingUnits(message.getReportingUnits());
                 }
             }
 
             if (verbose) {
-                this.verboseMessageForConsole(response + "\n");
+                this.verboseMessageForConsole(processed + "\n");
             } else {
                 this.messageForConsole(processed + "\n");
             }
@@ -648,7 +649,8 @@ public class GrblController extends AbstractController {
         }
         
         // Save max Z location
-        if (this.controllerStatus != null && this.getUnitsCode() != null) {
+        if (this.controllerStatus != null && this.getUnitsCode() != null
+                && this.controllerStatus.getMachineCoord() != null) {
             Units u = this.getUnitsCode().toUpperCase().equals("G21") ?
                     Units.MM : Units.INCH;
             double zLocationMM = this.controllerStatus.getMachineCoord().z;

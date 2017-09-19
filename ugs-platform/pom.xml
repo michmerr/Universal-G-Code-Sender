@@ -16,9 +16,10 @@
     <name>ugs-platform-parent</name>
 
     <properties>
-      <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
-      <netbeans.version>RELEASE81</netbeans.version>
+      <maven.build.timestamp.format>yyyy.MM.dd.HH.mm</maven.build.timestamp.format>
+      <netbeans.version>RELEASE82</netbeans.version>
       <ugs.app.title>Universal Gcode Platform ${project.version}</ugs.app.title>
+      <ugs.appbundle.name>Universal Gcode Platform</ugs.appbundle.name>
 
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -26,12 +27,16 @@
        <!-- Adding timestamp for nightly autoupdates -->
        <!--
             -->
-      <ugs.modules.implementation.version>${maven.build.timestamp}</ugs.modules.implementation.version>
+      <ugs.modules.specification.version>
+        ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.${maven.build.timestamp}
+      </ugs.modules.specification.version>
 
-      <!--==== Mac OS X bundle settings ====-->
-      <ugs.appbundle.name>Universal Gcode Platform</ugs.appbundle.name>
-      <ugs.bundle.jre.url>http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163</ugs.bundle.jre.url>
-      <ugs.bundle.jre.version>jre-8u131-macosx-x64</ugs.bundle.jre.version>
+      <!--==== JRE Bundle Properties ====-->
+      <ugs.bundle.java.url>http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135</ugs.bundle.java.url>
+
+      <ugs.mac.bundle.jvm.version>jre-8u144-macosx-x64</ugs.mac.bundle.jvm.version>
+      <ugs.rpi.bundle.jvm.version>jdk-8u144-linux-arm64-vfp-hflt</ugs.rpi.bundle.jvm.version>
+      <ugs.rpi.bundle.javafx.url>http://download.gluonhq.com/javafxports/embedded/armv6hf-sdk-8.60.9.zip</ugs.rpi.bundle.javafx.url>
 
       <!-- Mac OS X signing identity - must match with a verified Apple developer certificate in the keychain -->
       <ugs.codesign.identity>Developer ID Application</ugs.codesign.identity>
@@ -50,6 +55,8 @@
       <ugs.maven-antrun-plugin.version>1.8</ugs.maven-antrun-plugin.version>
 
       <ugs.nbm-maven-plugin.version>4.1</ugs.nbm-maven-plugin.version>
+
+      <ugs.maven-resources-plugin.version>3.0.2</ugs.maven-resources-plugin.version>
     </properties>
 
     <repositories>
@@ -103,6 +110,11 @@
               </plugin>
               <plugin>
                   <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-resources-plugin</artifactId>
+                  <version>${ugs.maven-resources-plugin.version}</version>
+              </plugin>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-antrun-plugin</artifactId>
                   <version>${ugs.maven-antrun-plugin.version}</version>
               </plugin>
@@ -135,6 +147,21 @@
               </execution>
             </executions>
           </plugin>
+
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.8</version>
+            <executions>
+              <execution>
+                <id>parse-version</id>
+                <goals>
+                  <goal>parse-version</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
         </plugins>
     </build>
 

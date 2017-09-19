@@ -64,10 +64,10 @@ public class Settings {
     private String defaultUnits = Units.MM.abbreviation;
 
     // Probe settings
-    private String probeAxis = "Z";
     private double probeFeed = 5.0;
     private double probeDistance = -10;
     private double probeOffset = 0;
+    private double retractHeight = 0;
 
     private boolean showNightlyWarning = true;
     private boolean showSerialPortWarning = true;
@@ -175,6 +175,7 @@ public class Settings {
     }
 
     public void setFirmwareVersion(String firmwareVersion) {
+        if (firmwareVersion == this.firmwareVersion) return;
         this.firmwareVersion = firmwareVersion;
         changed();
     }
@@ -193,6 +194,7 @@ public class Settings {
     }
 
     public void setPort(String port) {
+        if (this.port == port) return;
         this.port = port;
         changed();
     }
@@ -202,6 +204,7 @@ public class Settings {
     }
 
     public void setPortRate(String portRate) {
+        if (this.portRate == portRate) return;
         this.portRate = portRate;
         changed();
     }
@@ -460,15 +463,6 @@ public class Settings {
         return this.toolbarIconSize;
     }
 
-    public String getProbeAxis() {
-        return probeAxis;
-    }
-
-    public void setProbeAxis(String probeAxis) {
-        this.probeAxis = probeAxis;
-        changed();
-    }
-
     public double getProbeFeed() {
         return probeFeed;
     }
@@ -488,11 +482,20 @@ public class Settings {
     }
 
     public double getProbeOffset() {
-        return probeOffset;
+        return this.probeOffset;
     }
 
     public void setProbeOffset(double probeOffset) {
         this.probeOffset = probeOffset;
+        changed();
+    }
+
+    public double getRetractHeight() {
+        return this.retractHeight;
+    }
+
+    public void setRetractHeight(double retractHeight) {
+        this.retractHeight = retractHeight;
         changed();
     }
 
