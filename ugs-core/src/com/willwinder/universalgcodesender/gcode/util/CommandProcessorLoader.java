@@ -1,5 +1,5 @@
 /*
-    Copywrite 2016 Will Winder
+    Copyright 2016-2017 Will Winder
 
     This file is part of Universal Gcode Sender (UGS).
 
@@ -24,18 +24,18 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.willwinder.universalgcodesender.gcode.processors.ArcExpander;
 import com.willwinder.universalgcodesender.gcode.processors.CommandLengthProcessor;
-import com.willwinder.universalgcodesender.gcode.processors.CommandSplitter;
 import com.willwinder.universalgcodesender.gcode.processors.CommentProcessor;
 import com.willwinder.universalgcodesender.gcode.processors.DecimalProcessor;
 import com.willwinder.universalgcodesender.gcode.processors.FeedOverrideProcessor;
-import com.willwinder.universalgcodesender.gcode.processors.ICommandProcessor;
 import com.willwinder.universalgcodesender.gcode.processors.M30Processor;
+import com.willwinder.universalgcodesender.gcode.processors.M3Dweller;
 import com.willwinder.universalgcodesender.gcode.processors.PatternRemover;
 import com.willwinder.universalgcodesender.gcode.processors.WhitespaceProcessor;
 import com.willwinder.universalgcodesender.i18n.Localization;
 import com.willwinder.universalgcodesender.utils.ControllerSettings.ProcessorConfig;
 import java.util.ArrayList;
 import java.util.List;
+import com.willwinder.universalgcodesender.gcode.processors.CommandProcessor;
 
 /**
  *
@@ -55,11 +55,6 @@ public class CommandProcessorLoader {
      *         "args": {}
      *     },{
      *         "name": "CommandLenghtProcessor",
-     *         "enabled": <enabled>,
-     *         "optional": <optional>,
-     *         "args": {}
-     *     },{
-     *         "name": "CommandSplitter",
      *         "enabled": <enabled>,
      *         "optional": <optional>,
      *         "args": {}
@@ -85,6 +80,11 @@ public class CommandProcessorLoader {
      *         "args": {}
      *     },{
      *         name: "WhitespaceProcessor",
+     *         "enabled": <enabled>,
+     *         "optional": <optional>,
+     *         "args": {}
+     *     },{
+     *         name: "M3Dweller",
      *         "enabled": <enabled>,
      *         "optional": <optional>,
      *         "args": {}
@@ -141,10 +141,6 @@ public class CommandProcessorLoader {
      *             "commandLength": <double>
      *         }
      *     },{
-     *         "name": "CommandSplitter",
-     *         "enabled": <enabled>
-     *         "optional": <optional>,
-     *     },{
      *         "name": "CommentProcessor",
      *         "enabled": <enabled>
      *         "optional": <optional>,
@@ -170,17 +166,24 @@ public class CommandProcessorLoader {
      *         name: "WhitespaceProcessor",
      *         "enabled": <enabled>
      *         "optional": <optional>,
+     *     },{
+     *         name: "M3Dweller",
+     *         "enabled": <enabled>,
+     *         "optional": <optional>,
+     *         "args": {
+     *             "duraion": <double>
+     *         }
      *     }
      *  ]
      */
-    static public List<ICommandProcessor> initializeWithProcessors(String jsonConfig) {
+    static public List<CommandProcessor> initializeWithProcessors(String jsonConfig) {
         return initializeWithProcessors(getConfigFrom(jsonConfig));
     }
 
-    static public List<ICommandProcessor> initializeWithProcessors(List<ProcessorConfig> config) {
-        List<ICommandProcessor> list = new ArrayList<>();
+    static public List<CommandProcessor> initializeWithProcessors(List<ProcessorConfig> config) {
+        List<CommandProcessor> list = new ArrayList<>();
         for (ProcessorConfig pc : config) {
-            ICommandProcessor p = null;
+            CommandProcessor p = null;
 
             // Check if the processor is enabled.
             if (pc.optional && !pc.enabled) {
@@ -195,9 +198,6 @@ public class CommandProcessorLoader {
                 case "CommandLengthProcessor":
                     int commandLength = pc.args.get("commandLength").getAsInt();
                     p = new CommandLengthProcessor(commandLength);
-                    break;
-                case "CommandSplitter":
-                    p = new CommandSplitter();
                     break;
                 case "CommentProcessor":
                     p = new CommentProcessor();
@@ -219,6 +219,10 @@ public class CommandProcessorLoader {
                     break;
                 case "WhitespaceProcessor":
                     p = new WhitespaceProcessor();
+                    break;
+                case "M3Dweller":
+                    double duration = pc.args.get("duration").getAsDouble();
+                    p = new M3Dweller(duration);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown processor: " + pc.name);
@@ -236,7 +240,7 @@ public class CommandProcessorLoader {
      * @return 
      */
     static public String getHelpForConfig(ProcessorConfig pc) {
-        ICommandProcessor p;
+        CommandProcessor p;
         try {
             switch (pc.name) {
                 case "ArcExpander":
@@ -246,9 +250,6 @@ public class CommandProcessorLoader {
                 case "CommandLengthProcessor":
                     int commandLength = pc.args.get("commandLength").getAsInt();
                     p = new CommandLengthProcessor(commandLength);
-                    break;
-                case "CommandSplitter":
-                    p = new CommandSplitter();
                     break;
                 case "CommentProcessor":
                     p = new CommentProcessor();
@@ -270,6 +271,10 @@ public class CommandProcessorLoader {
                     break;
                 case "WhitespaceProcessor":
                     p = new WhitespaceProcessor();
+                    break;
+                case "M3Dweller":
+                    int duration = pc.args.get("duration").getAsInt();
+                    p = new M3Dweller(duration);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown processor: " + pc.name);

@@ -1,5 +1,5 @@
 /*
-    Copywrite 2016 Will Winder
+    Copyright 2016-2017 Will Winder
 
     This file is part of Universal Gcode Sender (UGS).
 
@@ -31,6 +31,9 @@ import org.openide.util.lookup.ServiceProvider;
  */
 @ServiceProvider(service=LocalizingService.class) 
 public class LocalizingService {
+    public static final String WINDOW_PATH = "Menu/Window";
+    public static final String PLUGIN_WINDOW = WINDOW_PATH +"/Plugins";
+
     // Initialize backend (locale setting) before we load localized strings.
     static private final String lang = CentralLookup.getDefault().lookup(BackendAPI.class).getSettings().getLanguage();
     public final static String VisualizerTitle = Localization.getString("platform.window.visualizer", lang);
@@ -93,11 +96,15 @@ public class LocalizingService {
     public final static String WorkflowWindowActionId = "com.willwinder.ugs.nbm.workflow.WorkflowWindowTopComponent";
     public final static String WorkflowWindowCategory = "Window";
 
-    public final static String ProbeTitle = Localization.getString("platform.window.probe", lang);
-    public final static String ProbeTooltip = Localization.getString("platform.window.probe.tooltip", lang);
-    public final static String ProbeWindowPath = "Menu/Window/Plugins";
-    public final static String ProbeActionId = "com.willwinder.ugs.nbp.control.ProbeTopComponent";
+    public final static String ProbeTitle = Localization.getString("platform.window.probe-module", lang);
+    public final static String ProbeTooltip = Localization.getString("platform.window.probe-module.tooltip", lang);
+    public final static String ProbeActionId = "com.willwinder.ugs.platform.probe.ProbeTopComponent";
     public final static String ProbeCategory = "Window";
+
+    public final static String DowelTitle = Localization.getString("platform.window.dowel-module", lang);
+    public final static String DowelTooltip = Localization.getString("platform.window.dowel-module.tooltip", lang);
+    public final static String DowelActionId = "com.willwinder.ugs.platform.dowel.DowelTopComponent";
+    public final static String DowelCategory = "Window";
 
     public final static String AutoLevelerTitle = Localization.getString("platform.window.autoleveler", lang);
     public final static String AutoLevelerTooltip = Localization.getString("platform.window.autoleveler.tooltip", lang);
@@ -172,7 +179,7 @@ public class LocalizingService {
                         Localization.getString("platform.menu.window"),
                         Localization.getString("platform.menu.plugins")));
 
-        // Menu Items
+        // Localize Menu Items
         ars.overrideActionName(WorkflowWindowCategory, WorkflowWindowActionId, WorkflowWindowTitle);
         ars.overrideActionName(ActionsCategory, ActionsActionId, ActionsTitle);
         ars.overrideActionName(LocationStatusCategory, LocationStatusActionId, LocationStatusTitle);

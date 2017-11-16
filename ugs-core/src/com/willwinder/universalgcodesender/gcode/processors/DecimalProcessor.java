@@ -2,7 +2,7 @@
  * Truncates decimals to a configurable amount.
  */
 /*
-    Copywrite 2016 Will Winder
+    Copyright 2016-2017 Will Winder
 
     This file is part of Universal Gcode Sender (UGS).
 
@@ -31,10 +31,13 @@ import java.util.List;
  *
  * @author wwinder
  */
-public class DecimalProcessor implements ICommandProcessor {
+public class DecimalProcessor implements CommandProcessor {
     private final int numDecimals;
 
     public DecimalProcessor(int numDecimals) {
+        if (numDecimals < 4 && numDecimals != 0)
+            throw new RuntimeException(this.getClass().getSimpleName() 
+                    + ": Use at least 4 decimals.");
         this.numDecimals = numDecimals;
     }
 

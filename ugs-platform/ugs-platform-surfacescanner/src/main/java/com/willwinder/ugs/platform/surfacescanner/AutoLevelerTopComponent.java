@@ -21,13 +21,11 @@ package com.willwinder.ugs.platform.surfacescanner;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.willwinder.ugs.nbm.visualizer.shared.IRendererNotifier;
 import com.willwinder.ugs.nbm.visualizer.shared.RenderableUtils;
 import com.willwinder.ugs.nbp.lib.lookup.CentralLookup;
 import com.willwinder.ugs.nbp.lib.services.LocalizingService;
 import com.willwinder.universalgcodesender.gcode.GcodeParser;
 import com.willwinder.universalgcodesender.gcode.processors.ArcExpander;
-import com.willwinder.universalgcodesender.gcode.processors.CommandSplitter;
 import com.willwinder.universalgcodesender.gcode.processors.CommentProcessor;
 import com.willwinder.universalgcodesender.gcode.processors.LineSplitter;
 import com.willwinder.universalgcodesender.gcode.processors.MeshLeveler;
@@ -58,7 +56,6 @@ import org.netbeans.api.options.OptionsDisplayer;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Exceptions;
-import org.openide.util.Lookup;
 import org.openide.windows.TopComponent;
 
 /**
@@ -86,6 +83,7 @@ public final class AutoLevelerTopComponent extends TopComponent implements ItemL
 
     // Used to disable the change listener temporarily.
     private boolean bulkChanges = false;
+    boolean scanningSurface = false;
 
     public AutoLevelerTopComponent() {
         initComponents();
@@ -148,6 +146,8 @@ public final class AutoLevelerTopComponent extends TopComponent implements ItemL
     @Override
     public void UGSEvent(UGSEvent evt) {
         if (evt.isProbeEvent()) {
+            if (!scanningSurface) return;
+
             Position probe = evt.getProbePosition();
             Position offset = this.settings.getAutoLevelSettings().autoLevelProbeOffset;
 
@@ -528,6 +528,7 @@ public final class AutoLevelerTopComponent extends TopComponent implements ItemL
             return;
         }
 
+        scanningSurface = true;
         try {
             Units u = this.unitMM.isSelected() ? Units.MM : Units.INCH;
             AutoLevelSettings als = settings.getAutoLevelSettings();
@@ -538,6 +539,8 @@ public final class AutoLevelerTopComponent extends TopComponent implements ItemL
             }
         } catch (Exception ex) {
             Exceptions.printStackTrace(ex);
+        } finally {
+            scanningSurface = false;
         }
     }//GEN-LAST:event_scanSurfaceButtonActionPerformed
 
@@ -571,8 +574,7 @@ public final class AutoLevelerTopComponent extends TopComponent implements ItemL
         // Step 0: Get rid of comments.
         gcp.addCommandProcessor(new  CommentProcessor());
 
-        // Step 1: The arc processor and line processor need commands to be split.
-        gcp.addCommandProcessor(new CommandSplitter());
+        // Step 1: The arc processor and line processors NO LONGER need to be split!
 
         // Step 2: Must convert arcs to line segments.
         gcp.addCommandProcessor(new ArcExpander(true, autoLevelSettings.autoLevelArcSliceLength));
@@ -662,9 +664,7 @@ public final class AutoLevelerTopComponent extends TopComponent implements ItemL
         GUIHelpers.displayHelpDialog(Localization.getString("experimental.feature"));
         scanner = new SurfaceScanner(Units.MM);
         if (r == null) {
-            IRendererNotifier notifier = Lookup.getDefault().lookup(IRendererNotifier.class);
-            r = new AutoLevelPreview(0, notifier,
-                    Localization.getString("platform.visualizer.renderable.autolevel-preview"));
+            r = new AutoLevelPreview(Localization.getString("platform.visualizer.renderable.autolevel-preview"));
             RenderableUtils.registerRenderable(r);
         }
 

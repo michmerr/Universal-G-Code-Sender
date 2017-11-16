@@ -25,14 +25,11 @@
 package com.willwinder.ugs.nbm.visualizer.shared;
 
 import com.jogamp.opengl.GL;
-import static com.jogamp.opengl.GL.GL_DEPTH_TEST;
-import static com.jogamp.opengl.GL.GL_FRONT_AND_BACK;
 import static com.jogamp.opengl.GL.GL_LINES;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLDrawable;
 import com.jogamp.opengl.GLEventListener;
-import static com.jogamp.opengl.fixedfunc.GLLightingFunc.GL_AMBIENT_AND_DIFFUSE;
 import static com.jogamp.opengl.fixedfunc.GLMatrixFunc.GL_MODELVIEW;
 import static com.jogamp.opengl.fixedfunc.GLMatrixFunc.GL_PROJECTION;
 import com.jogamp.opengl.glu.GLU;
@@ -70,9 +67,8 @@ import org.openide.util.lookup.ServiceProviders;
 @SuppressWarnings("serial")
 @ServiceProviders(value = {
     @ServiceProvider(service = IRenderableRegistrationService.class),
-    @ServiceProvider(service = IRendererNotifier.class),
     @ServiceProvider(service = GcodeRenderer.class)})
-public class GcodeRenderer implements GLEventListener, IRenderableRegistrationService, IRendererNotifier {
+public class GcodeRenderer implements GLEventListener, IRenderableRegistrationService {
     private static final Logger logger = Logger.getLogger(GcodeRenderer.class.getName());
     
     private static boolean ortho = true;
@@ -162,22 +158,18 @@ public class GcodeRenderer implements GLEventListener, IRenderableRegistrationSe
 
     @Override
     public void registerRenderable(Renderable r) {
+        if (r == null) return;
         objects.add(r);
         Collections.sort(objects);
     }
 
     @Override
     public void removeRenderable(Renderable r) {
+        if (r == null) return;
         objects.remove(r);
         Collections.sort(objects);
     }
     
-    public void forceRedraw() {
-        if (drawable != null) {
-            drawable.display();
-        }
-    }
-
     /**
      * Get the location on the XY plane of the mouse.
      */
@@ -201,7 +193,6 @@ public class GcodeRenderer implements GLEventListener, IRenderableRegistrationSe
         for (Renderable r : objects) {
             r.reloadPreferences(vo);
         }
-        forceRedraw();
     }
 
     // ------ Implement methods declared in GLEventListener ------
@@ -238,16 +229,53 @@ public class GcodeRenderer implements GLEventListener, IRenderableRegistrationSe
         // Parse random gcode file and generate something to draw.
         GL2 gl = drawable.getGL().getGL2();      // get the OpenGL graphics context
         glu = new GLU();                         // get GL Utilities
+        gl.glShadeModel(GL2.GL_SMOOTH); // blends colors nicely, and smoothes out lighting
         gl.glClearColor(clearColor.getRed()/255f, clearColor.getGreen()/255f, clearColor.getBlue()/255f, clearColor.getAlpha()/255f);
         gl.glClearDepth(1.0f);      // set clear depth value to farthest
-        gl.glDepthFunc(GL2.GL_LEQUAL);  // the type of depth test to do
-        gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // best perspective correction
-        gl.glShadeModel(GL2.GL_SMOOTH); // blends colors nicely, and smoothes out lighting
         gl.glEnable(GL2.GL_BLEND);
         gl.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
+        gl.glEnable(GL.GL_DEPTH_TEST);
+        gl.glDepthFunc(GL2.GL_LEQUAL);  // the type of depth test to do
+        gl.glHint(GL2.GL_PERSPECTIVE_CORRECTION_HINT, GL2.GL_NICEST); // best perspective correction
 
+        /*
         gl.glLoadIdentity();
+        float[] lmodel_ambient = { 0.5f, 0.5f, 0.5f, 1.0f };
+        gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, lmodel_ambient, 0);
+        */
 
+        // init lighting
+        float ambient[] = { .6f, .6f, .6f, 1.f };
+        float diffuse[] = { .6f, .6f, .6f, 1.0f };
+        float position[] = { 0f, 0f, 20f, 1.0f };
+
+        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambient, 0);
+        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuse, 0);
+        gl.glEnable(GL2.GL_LIGHT0);  
+        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, position, 0);
+
+        // Allow glColor to set colors
+        gl.glEnable (GL2.GL_COLOR_MATERIAL) ;
+        gl.glColorMaterial(GL.GL_FRONT, GL2.GL_DIFFUSE);
+        gl.glColorMaterial(GL.GL_FRONT, GL2.GL_AMBIENT);
+        //gl.glColorMaterial(GL.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE);
+        //gl.glColorMaterial(GL.GL_FRONT, GL2.GL_SPECULAR);
+
+
+        float mat_specular[] =
+            { 1.0f, 1.0f, 1.0f, 1.0f };
+        float diffuseMaterial[] =
+            { 0.5f, 0.5f, 0.5f, 1.0f };
+     
+        gl.glMaterialfv(GL.GL_FRONT, GL2.GL_DIFFUSE, diffuseMaterial, 0);
+        //gl.glMaterialfv(GL.GL_FRONT, GL2.GL_SPECULAR, mat_specular, 0);
+        //gl.glMaterialf(GL.GL_FRONT, GL2.GL_SHININESS, 25.0f);
+
+        //gl.glMaterialfv(GL.GL_FRONT_AND_BACK, GL2.GL_AMBIENT_AND_DIFFUSE);
+
+
+
+        gl.glEnable(GL2.GL_LIGHTING); 
         for (Renderable r : objects) {
             r.init(drawable);
         }
@@ -282,7 +310,6 @@ public class GcodeRenderer implements GLEventListener, IRenderableRegistrationSe
             idle = false;
         }
         resizeForCamera(objectMin, objectMax, 0.9);
-        forceRedraw();
     }
 
     /**
@@ -331,27 +358,10 @@ public class GcodeRenderer implements GLEventListener, IRenderableRegistrationSe
         this.setupPerpective(this.xSize, this.ySize, drawable, ortho);
 
         final GL2 gl = drawable.getGL().getGL2();
-        gl.glClearColor(clearColor.getRed()/255f, clearColor.getGreen()/255f, clearColor.getBlue()/255f, clearColor.getAlpha()/255f);
         gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
-        gl.glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
-        gl.glEnable(GL2.GL_LIGHT0);  
+        // Update normals when an object is scaled
         gl.glEnable(GL2.GL_NORMALIZE); 
-        gl.glEnable (GL2.GL_COLOR_MATERIAL ) ;
-
-        float ambient[] = { 0.4f, 0.4f, 0.4f, 1.0f };
-        float diffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-        float specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-        float position[] = { 0f, 0f, 50f, 1.0f };
-        float lmodel_ambient[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-
-        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, specular, 0);
-        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, ambient, 0);
-        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuse, 0);
-        gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, position, 0);
-        gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, lmodel_ambient, 0);
-
-        gl.glEnable(GL_DEPTH_TEST);
 
         // Setup the current matrix so that the projection can be done.
         if (mouseLastWindow != null) {
@@ -372,6 +382,9 @@ public class GcodeRenderer implements GLEventListener, IRenderableRegistrationSe
             if (!r.isEnabled()) continue;
 
             gl.glPushMatrix();
+                // in case a renderable sets the color, set it back to gray and opaque.
+                gl.glColor4f(0.5f, 0.5f, 0.5f, 1f);
+
                 if (r.rotate()) {
                     gl.glRotated(this.rotation.x, 0.0, 1.0, 0.0);
                     gl.glRotated(this.rotation.y, 1.0, 0.0, 0.0);
@@ -379,7 +392,15 @@ public class GcodeRenderer implements GLEventListener, IRenderableRegistrationSe
                 if (r.center()) {
                     gl.glTranslated(-this.eye.x - this.center.x, -this.eye.y - this.center.y, -this.eye.z - this.center.z);
                 }
+
+                if (!r.enableLighting()) {
+                    gl.glDisable(GL2.GL_LIGHTING);
+                }
                 r.draw(drawable, idle, workCoord, objectMin, objectMax, scaleFactor, mouseWorldXY, rotation);
+                if (!r.enableLighting()) {
+                    gl.glEnable(GL2.GL_LIGHTING);
+                    gl.glEnable(GL2.GL_LIGHT0);
+                }
             gl.glPopMatrix();
         }
         

@@ -16,12 +16,19 @@
     You should have received a copy of the GNU General Public License
     along with UGS.  If not, see <http://www.gnu.org/licenses/>.
  */
-package com.willwinder.ugs.nbm.visualizer.shared;
+package com.willwinder.universalgcodesender.utils;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  *
  * @author wwinder
  */
-public interface IRendererNotifier {
-    public void forceRedraw();
+public class ThreadHelper {
+     private static ExecutorService executor = Executors.newCachedThreadPool();
+
+    static public void invokeLater(Runnable r) {
+        executor.submit(r);
+    }
 }

@@ -1,10 +1,8 @@
 /**
- * Splits up any command containing more than one of G, M, S or T commands.
- * Be sure to apply the command splitter AFTER the comment processor, or else
- * commands may be split inside a comment.
+ * Adds a dwell command after an M3.
  */
 /*
-    Copywrite 2016 Will Winder
+    Copyright 2017 Will Winder
 
     This file is part of Universal Gcode Sender (UGS).
 
@@ -23,41 +21,41 @@
  */
 package com.willwinder.universalgcodesender.gcode.processors;
 
+import com.willwinder.universalgcodesender.gcode.GcodePreprocessorUtils;
 import com.willwinder.universalgcodesender.gcode.GcodeState;
 import com.willwinder.universalgcodesender.gcode.util.GcodeParserException;
 import com.willwinder.universalgcodesender.i18n.Localization;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.regex.Matcher;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
  *
  * @author wwinder
  */
-public class CommandSplitter implements ICommandProcessor {
-    Pattern GROUP_PATTERN = Pattern.compile("(.*?)([GgMmTt].*?)(?=[GgMmTt]|$)");
+public class M3Dweller implements CommandProcessor {
+    private final String dwellCommand;
 
-    @Override
-    public String getHelp() {
-        return Localization.getString("sender.help.commandSplitter");
+    // Contains an M3 not followed by another digit (i.e. M30)
+    Pattern m3Pattern = Pattern.compile(".*[mM]3(?!\\d)(\\D.*)?");
+
+    public M3Dweller(double dwellDuration) {
+        this.dwellCommand = String.format(Locale.ROOT, "G4P%.2f", dwellDuration);
     }
 
     @Override
     public List<String> processCommand(String command, GcodeState state) throws GcodeParserException {
-        List<String> ret = new ArrayList<>();
-        
-        Matcher m = GROUP_PATTERN.matcher(command);
-
-        while (m.find()) {
-            ret.add(m.group(0).trim());
+        String noComments = GcodePreprocessorUtils.removeComment(command);
+        if (m3Pattern.matcher(noComments).matches()) {
+            return Arrays.asList(command, dwellCommand);
         }
-
-        if (ret.isEmpty()) {
-            ret.add(command);
-        }
-
-        return ret;
+        return Collections.singletonList(command);
     }
-    
+
+    @Override
+    public String getHelp() {
+        return Localization.getString("sender.help.spindle-dwell");
+    }
 }

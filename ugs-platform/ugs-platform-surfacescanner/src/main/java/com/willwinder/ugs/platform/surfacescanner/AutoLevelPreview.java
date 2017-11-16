@@ -19,13 +19,11 @@
 package com.willwinder.ugs.platform.surfacescanner;
 
 import com.google.common.collect.ImmutableCollection;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.util.gl2.GLUT;
 import com.willwinder.ugs.nbm.visualizer.options.VisualizerOptions;
-import com.willwinder.ugs.nbm.visualizer.shared.IRendererNotifier;
 import com.willwinder.ugs.nbm.visualizer.shared.Renderable;
 import com.willwinder.universalgcodesender.model.Position;
 import com.willwinder.universalgcodesender.model.UnitUtils;
@@ -37,7 +35,6 @@ import javax.vecmath.Point3d;
  * @author wwinder
  */
 public class AutoLevelPreview extends Renderable {
-    private final IRendererNotifier notifier;
     private final GLUT glut;
 
     private ImmutableCollection<Position> positions;
@@ -49,10 +46,8 @@ public class AutoLevelPreview extends Renderable {
     private float high[] = {0, 255, 0}; // green
     private float low[] = {255, 0, 0}; // red
 
-    public AutoLevelPreview(int priority, IRendererNotifier notifier, String title) {
+    public AutoLevelPreview(String title) {
         super(10, title);
-
-        this.notifier = notifier;
 
         glut = new GLUT();
 
@@ -85,9 +80,8 @@ public class AutoLevelPreview extends Renderable {
             final Point3d[][] grid,
             Point3d max,
             Point3d min) {
-        if (positions != null && !positions.isEmpty() && this.notifier != null) {
+        if (positions != null && !positions.isEmpty()) {
             this.positions = positions;
-            this.notifier.forceRedraw();
             this.grid = grid;
             if (max != null) {
                 this.maxZ = max.z;
@@ -122,8 +116,6 @@ public class AutoLevelPreview extends Renderable {
         
         GL2 gl = drawable.getGL().getGL2();
         gl.glPushMatrix();
-            gl.glEnable(GL2.GL_LIGHTING); 
-
             // Scale inch to mm if needed
             double scale = UnitUtils.scaleUnits(unit, Units.MM);
             if (unit != Units.MM) {
@@ -159,8 +151,6 @@ public class AutoLevelPreview extends Renderable {
             gl.glPopMatrix();
 
             drawProbedSurface(gl);
-
-            gl.glDisable(GL2.GL_LIGHTING); 
         gl.glPopMatrix();
     }
 

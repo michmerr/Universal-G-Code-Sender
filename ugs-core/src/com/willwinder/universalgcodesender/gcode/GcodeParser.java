@@ -28,19 +28,24 @@
  */
 package com.willwinder.universalgcodesender.gcode;
 
+import com.google.common.collect.Iterables;
 import com.willwinder.universalgcodesender.gcode.util.GcodeParserException;
 import static com.willwinder.universalgcodesender.gcode.util.Plane.*;
-import com.willwinder.universalgcodesender.gcode.processors.ICommandProcessor;
 import com.willwinder.universalgcodesender.gcode.processors.Stats;
 import com.willwinder.universalgcodesender.gcode.util.Code;
+import static com.willwinder.universalgcodesender.gcode.util.Code.*;
+import static com.willwinder.universalgcodesender.gcode.util.Code.ModalGroup.Motion;
 import static com.willwinder.universalgcodesender.gcode.util.Code.UNKNOWN;
 import com.willwinder.universalgcodesender.gcode.util.PlaneFormatter;
+import com.willwinder.universalgcodesender.i18n.Localization;
 import com.willwinder.universalgcodesender.types.PointSegment;
 
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.vecmath.Point3d;
+import org.apache.commons.lang3.StringUtils;
+import com.willwinder.universalgcodesender.gcode.processors.CommandProcessor;
 
 /**
  *
@@ -52,7 +57,7 @@ public class GcodeParser implements IGcodeParser {
     // Current state
     private GcodeState state;
 
-    private final ArrayList<ICommandProcessor> processors = new ArrayList<>();
+    private final ArrayList<CommandProcessor> processors = new ArrayList<>();
 
     private Stats statsProcessor;
 
@@ -101,7 +106,7 @@ public class GcodeParser implements IGcodeParser {
      * Add a preprocessor to use with the preprocessCommand method.
      */
     @Override
-    public void addCommandProcessor(ICommandProcessor p) {
+    public void addCommandProcessor(CommandProcessor p) {
         this.processors.add(p);
     }
 
@@ -176,11 +181,12 @@ public class GcodeParser implements IGcodeParser {
      */
     public static List<GcodeMeta> processCommand(String command, int line, final GcodeState inputState)
             throws GcodeParserException {
-        String noCommentsCommand = GcodePreprocessorUtils.removeComment(command);
-        List<String> args = GcodePreprocessorUtils.splitCommand(noCommentsCommand);
+        List<String> args = GcodePreprocessorUtils.splitCommand(command);
         if (args.isEmpty()) return null;
 
+        // Initialize with original state
         GcodeState state = inputState.copy();
+
         state.commandNumber = line;
         
         // handle M codes.
@@ -189,29 +195,50 @@ public class GcodeParser implements IGcodeParser {
 
         List<String> fCodes = GcodePreprocessorUtils.parseCodes(args, 'F');
         if (!fCodes.isEmpty()) {
-            state.speed = Double.parseDouble(fCodes.remove(fCodes.size()-1));
+            try {
+                state.speed = Double.parseDouble(Iterables.getOnlyElement(fCodes));
+            } catch (IllegalArgumentException e) {
+                throw new GcodeParserException("Multiple F-codes on one line.");
+            }
+        }
+
+        List<String> sCodes = GcodePreprocessorUtils.parseCodes(args, 'S');
+        if (!sCodes.isEmpty()) {
+            try {
+                state.spindleSpeed = Double.parseDouble(Iterables.getOnlyElement(sCodes));
+            } catch (IllegalArgumentException e) {
+                throw new GcodeParserException("Multiple S-codes on one line.");
+            }
         }
         
-        // handle G codes.
-        List<String> gCodeStrings = GcodePreprocessorUtils.parseCodes(args, 'G');
-        List<Code> gCodes = gCodeStrings.stream()
-                .map(c -> 'G' + c)
-                .map(Code::lookupCode)
-                .filter(Objects::nonNull)
+        // Gather G codes.
+        Set<Code> gCodes = GcodePreprocessorUtils.getGCodes(args);
+        
+        boolean hasAxisWords = GcodePreprocessorUtils.hasAxisWords(args);
+
+        // Error to mix group 1 (Motion) and certain group 0 (NonModal) codes (G10, G28, G30, G92)
+        Collection<Code> motionCodes = gCodes.stream()
+                .filter(c -> c.consumesMotion())
                 .collect(Collectors.toList());
-        
-        // If there was no command and there are coordinates, add the implicit one to the party.
-        if (gCodes.isEmpty() && state.lastGcodeCommand != null
-                && GcodePreprocessorUtils.hasCoordinates(args)) {
-            gCodes.add(state.lastGcodeCommand);
+
+        // 1 motion code per line.
+        if (motionCodes.size() > 1) {
+            throw new GcodeParserException(Localization.getString("parser.gcode.multiple-axis-commands")
+                    + ": " + StringUtils.join(motionCodes, ", "));
         }
-        
+
+        // If there are axis words and nothing to use them, add the currentMotionMode.
+        if (hasAxisWords && motionCodes.isEmpty() && state.currentMotionMode != null) {
+            gCodes.add(state.currentMotionMode);
+        }
+
+        // Apply each code to the state.
         List<GcodeMeta> results = new ArrayList<>();
         for (Code i : gCodes) {
             if (i == UNKNOWN) {
                 logger.warning("An unknown gcode command was detected in: " + command);
             } else {
-                GcodeMeta meta = handleGCode(i, args, line, state);
+                GcodeMeta meta = handleGCode(i, args, line, state, hasAxisWords);
                 meta.command = command;
                 // Commands like 'G21' don't return a point segment.
                 if (meta.point != null) {
@@ -298,7 +325,7 @@ public class GcodeParser implements IGcodeParser {
      * 
      * A copy of the state object should go in the resulting GcodeMeta object.
      */
-    private static GcodeMeta handleGCode(final Code code, List<String> args, int line, GcodeState state)
+    private static GcodeMeta handleGCode(final Code code, List<String> args, int line, GcodeState state, boolean hasAxisWords)
             throws GcodeParserException {
         GcodeMeta meta = new GcodeMeta();
 
@@ -307,17 +334,19 @@ public class GcodeParser implements IGcodeParser {
         Point3d nextPoint = null;
 
         // If it is a movement code make sure it has some coordinates.
-        if (code.requiresCoordinates()) {
-            if (!GcodePreprocessorUtils.hasCoordinates(args)){
-                throw new GcodeParserException("Invalid: " + code + " with no coordinates");
-            }
+        if (code.consumesMotion()) {
+            nextPoint = GcodePreprocessorUtils.updatePointWithCommand(args, state.currentPoint, state.inAbsoluteMode);
 
-            nextPoint = GcodePreprocessorUtils.updatePointWithCommand(args, state.currentPoint, state.inAbsoluteMode)
-                    .orElseThrow(() -> new GcodeParserException("Invalid: " + code + " with no coordinates"));
-        } else {
-            if (meta.point != null) {
-                nextPoint = meta.point.point();
+            if (nextPoint == null) {
+                if (!code.motionOptional()) {
+                    throw new GcodeParserException(
+                            Localization.getString("parser.gcode.missing-axis-commands") + ": " + code);
+                }
             }
+        }
+
+        if (nextPoint == null && meta.point != null) {
+            nextPoint = meta.point.point();
         }
 
         switch (code) {
@@ -393,7 +422,9 @@ public class GcodeParser implements IGcodeParser {
             default:
                 break;
         }
-        state.lastGcodeCommand = code;
+        if (code.getType() == Motion) {
+            state.currentMotionMode = code;
+        }
         meta.state = state.copy();
         return meta;
     }
@@ -417,7 +448,7 @@ public class GcodeParser implements IGcodeParser {
         List<String> ret = new ArrayList<>();
         ret.add(command);
         GcodeState tempState = null;
-        for (ICommandProcessor p : processors) {
+        for (CommandProcessor p : processors) {
             // Reset point segments after each pass. The final pass is what we will return.
             tempState = initialState.copy();
             // Process each command in the list and add results to the end.
@@ -426,7 +457,7 @@ public class GcodeParser implements IGcodeParser {
                 // The arc expander changes the lastGcodeCommand which causes the following to fail:
                 // G2 Y-0.7 J-14.7
                 // Y28.7 J14.7 (this line treated as a G1)
-                tempState.lastGcodeCommand = initialState.lastGcodeCommand;
+                tempState.currentMotionMode = initialState.currentMotionMode;
                 List<String> intermediate = p.processCommand(ret.remove(0), tempState);
 
                 // process results to update the state and collect PointSegments

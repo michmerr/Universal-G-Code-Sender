@@ -1,5 +1,5 @@
 /*
-    Copywrite 2016 Will Winder
+    Copyright 2016-2017 Will Winder
 
     This file is part of Universal Gcode Sender (UGS).
 
@@ -48,7 +48,7 @@ public class CommandProcessorLoaderTest {
 
         boolean threwException = false;
         try {
-            List<ICommandProcessor> result = CommandProcessorLoader.initializeWithProcessors(array.toString());
+            List<CommandProcessor> result = CommandProcessorLoader.initializeWithProcessors(array.toString());
         } catch (IllegalArgumentException e) {
             threwException = true;
         }
@@ -71,7 +71,7 @@ public class CommandProcessorLoaderTest {
 
         boolean threwException = false;
         try {
-            List<ICommandProcessor> result = CommandProcessorLoader.initializeWithProcessors(array.toString());
+            List<CommandProcessor> result = CommandProcessorLoader.initializeWithProcessors(array.toString());
         } catch (IllegalArgumentException e) {
             threwException = true;
         }
@@ -93,10 +93,6 @@ public class CommandProcessorLoaderTest {
         object = new JsonObject();
         object.addProperty("name", "ArcExpander");
         object.add("args", args);
-        array.add(object);
-
-        object = new JsonObject();
-        object.addProperty("name", "CommandSplitter");
         array.add(object);
 
         object = new JsonObject();
@@ -142,19 +138,26 @@ public class CommandProcessorLoaderTest {
         object.add("args", args);
         array.add(object);
 
+        args = new JsonObject();
+        args.addProperty("duration", 2.5);
+        object = new JsonObject();
+        object.addProperty("name", "M3Dweller");
+        object.add("args", args);
+        array.add(object);
+
         String jsonConfig = array.toString();
-        List<ICommandProcessor> processors = CommandProcessorLoader.initializeWithProcessors(jsonConfig);
+        List<CommandProcessor> processors = CommandProcessorLoader.initializeWithProcessors(jsonConfig);
 
         assertEquals(9, processors.size());
         assertEquals(ArcExpander.class, processors.get(0).getClass());
-        assertEquals(CommandSplitter.class, processors.get(1).getClass());
-        assertEquals(CommentProcessor.class, processors.get(2).getClass());
-        assertEquals(DecimalProcessor.class, processors.get(3).getClass());
-        assertEquals(FeedOverrideProcessor.class, processors.get(4).getClass());
-        assertEquals(M30Processor.class, processors.get(5).getClass());
-        assertEquals(PatternRemover.class, processors.get(6).getClass());
-        assertEquals(CommandLengthProcessor.class, processors.get(7).getClass());
-        assertEquals(WhitespaceProcessor.class, processors.get(8).getClass());
+        assertEquals(CommentProcessor.class, processors.get(1).getClass());
+        assertEquals(DecimalProcessor.class, processors.get(2).getClass());
+        assertEquals(FeedOverrideProcessor.class, processors.get(3).getClass());
+        assertEquals(M30Processor.class, processors.get(4).getClass());
+        assertEquals(PatternRemover.class, processors.get(5).getClass());
+        assertEquals(CommandLengthProcessor.class, processors.get(6).getClass());
+        assertEquals(WhitespaceProcessor.class, processors.get(7).getClass());
+        assertEquals(M3Dweller.class, processors.get(8).getClass());
     }
     
     private static JsonElement with(String name, Boolean enabled) {

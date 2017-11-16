@@ -22,6 +22,8 @@ import com.willwinder.universalgcodesender.model.BackendAPI;
 import com.willwinder.universalgcodesender.uielements.components.GcodeFileTypeFilter;
 import com.willwinder.universalgcodesender.utils.Settings;
 import com.willwinder.universalgcodesender.utils.SettingsFactory;
+import com.willwinder.universalgcodesender.utils.SwingHelpers;
+import com.willwinder.universalgcodesender.utils.ThreadHelper;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import javax.swing.AbstractAction;
@@ -45,29 +47,21 @@ public class OpenGcodeFileAction extends AbstractAction {
     }
     
     public void openGcodeFile(File f) {
-        try {
-            backend.setGcodeFile(f);
-            Settings settings = backend.getSettings();
-            settings.setLastOpenedFilename(f.getAbsolutePath());
-            SettingsFactory.saveSettings(settings);
-        } catch (Exception e) {
-
-        }
+        ThreadHelper.invokeLater(() -> {
+                try {
+                    backend.setGcodeFile(f);
+                    Settings settings = backend.getSettings();
+                    settings.setLastOpenedFilename(f.getAbsolutePath());
+                    SettingsFactory.saveSettings(settings);
+                } catch (Exception e) {
+                }
+            });
     }
 
     public void openGcodeFileDialog() {
-        JFileChooser fileChooser = GcodeFileTypeFilter.getGcodeFileChooser(
-                backend.getSettings().getLastOpenedFilename());
-        int returnVal = fileChooser.showOpenDialog(new JFrame());
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            try {
-                File gcodeFile = fileChooser.getSelectedFile();
-                openGcodeFile(gcodeFile);
-            } catch (Exception ex) {
-                //MainWindow.displayErrorDialog(ex.getMessage());
-            }
-        } else {
-            // Canceled file open.
-        }  
+      String sourceDir = backend.getSettings().getLastOpenedFilename();
+        SwingHelpers
+                .openFile(sourceDir)
+                .ifPresent(file -> openGcodeFile(file));
     }
 }

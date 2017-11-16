@@ -166,19 +166,24 @@ public class GrblController extends AbstractController {
                     dispatchStateChange(COMM_IDLE);
                 }
 
-                processed = lookupCode(response, false);
+                GcodeCommand command = this.getActiveCommand();
+                processed =
+                        String.format(Localization.getString("controller.exception.sendError"),
+                                command.getCommandString(),
+                                lookupCode(response, false)).replaceAll("\\.\\.", "\\.");
                 this.errorMessageForConsole(processed);
                 this.commandComplete(processed);
+                processed = "";
             }
 
             else if (GrblUtils.isGrblVersionString(response)) {
+                this.isReady = true;
+                resetBuffers();
+
                 this.controllerStatus = null;
                 this.stopPollingPosition();
                 positionPollTimer = createPositionPollTimer();
                 this.beginPollingPosition();
-
-                this.isReady = true;
-                resetBuffers();
 
                 // In case a reset occurred while streaming.
                 if (this.isStreaming()) {
@@ -195,8 +200,6 @@ public class GrblController extends AbstractController {
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-
-                this.beginPollingPosition();
                 
                 Logger.getLogger(GrblController.class.getName()).log(Level.CONFIG, 
                         "{0} = {1}{2}", new Object[]{Localization.getString("controller.log.version"), this.grblVersion, this.grblVersionLetter});
@@ -237,10 +240,12 @@ public class GrblController extends AbstractController {
                 }
             }
 
-            if (verbose) {
-                this.verboseMessageForConsole(processed + "\n");
-            } else {
-                this.messageForConsole(processed + "\n");
+            if (StringUtils.isNotBlank(processed)) {
+                if (verbose) {
+                    this.verboseMessageForConsole(processed + "\n");
+                } else {
+                    this.messageForConsole(processed + "\n");
+                }
             }
         } catch (Exception e) {
             String message = "";
@@ -564,7 +569,7 @@ public class GrblController extends AbstractController {
                             }
                         } catch (Exception ex) {
                             messageForConsole(Localization.getString("controller.exception.sendingstatus")
-                                    + ": " + ex.getMessage() + "\n");
+                                    + " (" + ex.getMessage() + ")\n");
                             ex.printStackTrace();
                         }
                     }
@@ -575,12 +580,13 @@ public class GrblController extends AbstractController {
         
         return new Timer(this.getStatusUpdateRate(), actionListener);
     }
+
     /**
      * Begin issuing GRBL status request commands.
      */
     private void beginPollingPosition() {
         // Start sending '?' commands if supported and enabled.
-        if (this.capabilities != null && this.getStatusUpdatesEnabled()) {
+        if (this.isReady && this.capabilities != null && this.getStatusUpdatesEnabled()) {
             if (this.positionPollTimer.isRunning() == false) {
                 this.outstandingPolls = 0;
                 this.positionPollTimer.start();
@@ -616,7 +622,7 @@ public class GrblController extends AbstractController {
         }
 
         // GRBL 1.1 jog complete transition
-        if (beforeState.equals("Jog") && controllerStatus.getState().equals("Idle")) {
+        if (StringUtils.equals(beforeState, "Jog") && controllerStatus.getState().equals("Idle")) {
             this.comm.cancelSend();
         }
 

@@ -27,10 +27,8 @@ import com.willwinder.universalgcodesender.Utils;
 import com.willwinder.universalgcodesender.gcode.GcodeParser;
 import com.willwinder.universalgcodesender.gcode.GcodeStats;
 import com.willwinder.universalgcodesender.gcode.processors.CommandLengthProcessor;
-import com.willwinder.universalgcodesender.gcode.processors.CommandSplitter;
 import com.willwinder.universalgcodesender.gcode.processors.CommentProcessor;
 import com.willwinder.universalgcodesender.gcode.processors.DecimalProcessor;
-import com.willwinder.universalgcodesender.gcode.processors.ICommandProcessor;
 import com.willwinder.universalgcodesender.gcode.processors.M30Processor;
 import com.willwinder.universalgcodesender.gcode.processors.WhitespaceProcessor;
 import com.willwinder.universalgcodesender.gcode.util.GcodeParserUtils;
@@ -62,6 +60,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import com.willwinder.universalgcodesender.gcode.processors.CommandProcessor;
 
 /**
  *
@@ -117,7 +116,7 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
             private int count = 0;
             @Override
             public void run() {
-                autoconnect();
+                //autoconnect();
 
                 // Move the mouse every 30 seconds to prevent sleeping.
                 if (isPaused() || isActive()) {
@@ -175,12 +174,13 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
         // Configure gcode parser.
         gcp.resetCommandProcessors();
 
-        List<ICommandProcessor> processors = FirmwareUtils.getParserFor(firmware, settings).orElse(null);
-        if (processors != null) {
-            for (ICommandProcessor p : processors) {
+        try {
+            List<CommandProcessor> processors = FirmwareUtils.getParserFor(firmware, settings).orElse(null);
+            for (CommandProcessor p : processors) {
                 gcp.addCommandProcessor(p);
             }
-        } else {
+        }
+        catch (Exception e) {
             initializeWithFallbackProcessors(gcp);
         }
     }
@@ -189,11 +189,12 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
         this.firmware = firmware;
 
         // Load command processors for this firmware.
-        Optional<List<ICommandProcessor>> processor_ret =
-                FirmwareUtils.getParserFor(firmware, settings);
-        if (!processor_ret.isPresent()) {
+        try {
+            Optional<List<CommandProcessor>> processor_ret = FirmwareUtils.getParserFor(firmware, settings);
+        }
+        catch (Exception e) {
             disconnect();
-            throw new Exception("Bad configuration file for: " + firmware);
+            throw new Exception("Bad configuration file for: " + firmware + " (" + e.getMessage() + ")");
         }
 
         // Reload gcode file to use the controllers processors.
@@ -314,7 +315,7 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
             hal.mouseMove(pObj.x + 1, pObj.y + 1);
             hal.mouseMove(pObj.x - 1, pObj.y - 1);
             pObj = MouseInfo.getPointerInfo().getLocation();
-            System.out.println(pObj.toString() + "x>>" + pObj.x + "  y>>" + pObj.y);
+            logger.log(Level.INFO, pObj.toString() + "x>>" + pObj.x + "  y>>" + pObj.y);
         } catch (AWTException | NullPointerException ex) {
             Logger.getLogger(GUIBackend.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -343,7 +344,6 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
         parser.addCommandProcessor(new CommentProcessor());
         parser.addCommandProcessor(new WhitespaceProcessor());
         parser.addCommandProcessor(new M30Processor());
-        parser.addCommandProcessor(new CommandSplitter());
         parser.addCommandProcessor(new DecimalProcessor(4));
         parser.addCommandProcessor(new CommandLengthProcessor(50));
     }
@@ -370,9 +370,9 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
             systemStateBean.setEstimatedTimeRemaining(String.valueOf(this.getSendRemainingDuration()));
         }
         if (this.workCoord != null) {
-            systemStateBean.setWorkX(Utils.formatter.format(this.workCoord.getX()));
-            systemStateBean.setWorkY(Utils.formatter.format(this.workCoord.getY()));
-            systemStateBean.setWorkZ(Utils.formatter.format(this.workCoord.getZ()));
+            systemStateBean.setWorkX(Utils.formatter.format(this.workCoord.x));
+            systemStateBean.setWorkY(Utils.formatter.format(this.workCoord.y));
+            systemStateBean.setWorkZ(Utils.formatter.format(this.workCoord.z));
         }
         systemStateBean.setSendButtonText(openCloseButtonText);
         systemStateBean.setSendButtonEnabled(openCloseButtonEnabled);
@@ -781,12 +781,15 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
                     GUIHelpers.displayErrorDialog(e.getLocalizedMessage());
                 }
 
+                /*
                 String error =
                         String.format(Localization.getString("controller.exception.sendError"),
                                 command.getCommandString(),
                                 command.getResponse()).replaceAll("\\.\\.", "\\.");
                 messageForConsole(MessageType.INFO, error);
 
+                // The logic below used to automatically add "pattern processor remover" entries to the gcode processor.
+                // It was causing a lot of issues where users were adding commands which shouldn't be added.
                 String checkboxQuestion = Localization.getString("controller.exception.ignoreFutureErrors");
                 Object[] params = {String.format(NarrowOptionPane.pattern, 300, error), checkboxQuestion};
                 int n = JOptionPane.showConfirmDialog(new JFrame(),
@@ -802,6 +805,7 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
                         GUIHelpers.displayErrorDialog(ex.getLocalizedMessage());
                     }
                 }
+                */
             }
         }
     }
@@ -828,7 +832,9 @@ public class GUIBackend implements BackendAPI, ControllerListener, SettingChange
         this.activeState = status.getState();
         this.machineCoord = status.getMachineCoord();
         this.workCoord = status.getWorkCoord();
-        this.reportUnits = machineCoord.getUnits();
+        if (machineCoord != null) {
+            this.reportUnits = machineCoord.getUnits();
+        }
         this.lastResponse = System.currentTimeMillis();
         this.sendControllerStateEvent(new UGSEvent(status));
     }

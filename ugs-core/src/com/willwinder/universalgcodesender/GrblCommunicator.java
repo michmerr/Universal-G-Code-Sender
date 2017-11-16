@@ -21,11 +21,16 @@ package com.willwinder.universalgcodesender;
 import com.willwinder.universalgcodesender.connection.Connection;
 import com.willwinder.universalgcodesender.types.GcodeCommand;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.regex.Pattern;
 
 /**
  * @author wwinder
  */
 public class GrblCommunicator extends BufferedCommunicator {
+
+    private boolean temporarySingleStepMode;
+    private final static String EEPROM_COMMAND_PATTERN = "G10|G28|G30|\\$x=|\\$I|\\$N|\\$RST=|G5[456789]|\\$\\$|\\$#";
+    private final static Pattern EEPROM_COMMAND = Pattern.compile(EEPROM_COMMAND_PATTERN, Pattern.CASE_INSENSITIVE);
     
     protected GrblCommunicator() {}
 
@@ -64,8 +69,19 @@ public class GrblCommunicator extends BufferedCommunicator {
         return response.startsWith("error");
     }
 
+    /**
+     * When a command is sent, check if it is one of the special commands which writes to the EEPROM.
+     * If it is temporarily setSingleStepMode(true) to avoid corruption.
+     */
     @Override
     protected void sendingCommand(String response) {
-        // no-op for this protocol.
+        // If this is an EEPROM command switch to single step mode temporarily.
+        if (EEPROM_COMMAND.matcher(response).find()) {
+            this.temporarySingleStepMode = !this.getSingleStepMode() || this.temporarySingleStepMode;
+            this.setSingleStepMode(true);
+        } else if (this.temporarySingleStepMode) {
+            this.temporarySingleStepMode = false;
+            this.setSingleStepMode(false);
+        }
     }
 }
